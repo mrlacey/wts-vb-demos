@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="TabbedPivotMVVMLightVBDemo.Views.PivotPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding PivotViewModel, Source={StaticResource Locator}}"
+    xmlns:model="using:TabbedPivotMVVMLightVBDemo.Models"
+    xmlns:views="using:TabbedPivotMVVMLightVBDemo.Views"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Pivot x:Uid="PivotPage">
+            <PivotItem x:Uid="PivotItem_Main">
+                <Frame>
+                    <views:MainPage/>
+                </Frame>
+            </PivotItem>
+            <PivotItem x:Uid="PivotItem_Blank8">
+                <Frame>
+                    <views:Blank8Page/>
+                </Frame>
+            </PivotItem>
+            <PivotItem x:Uid="PivotItem_Camera8">
+                <Frame>
+                    <views:Camera8Page/>
+                </Frame>
+            </PivotItem>
+            <PivotItem x:Uid="PivotItem_Chart8">
+                <Frame>
+                    <views:Chart8Page/>
+                </Frame>
+            </PivotItem>
+            <PivotItem x:Uid="PivotItem_Grid8">
+                <Frame>
+                    <views:Grid8Page/>
+                </Frame>
+            </PivotItem>
+            <PivotItem x:Uid="PivotItem_ImageGallery8">
+                <Frame>
+                    <views:ImageGallery8Page/>
+                </Frame>
+            </PivotItem>
+            <PivotItem x:Uid="PivotItem_Map8">
+                <Frame>
+                    <views:Map8Page/>
+                </Frame>
+            </PivotItem>
+            <PivotItem x:Uid="PivotItem_MasterDetail8">
+                <Frame>
+                    <views:MasterDetail8Page/>
+                </Frame>
+            </PivotItem>
+            <PivotItem x:Uid="PivotItem_MediaPlayer8">
+                <Frame>
+                    <views:MediaPlayer8Page/>
+                </Frame>
+            </PivotItem>
+            <PivotItem x:Uid="PivotItem_Settings8">
+                <Frame>
+                    <views:Settings8Page/>
+                </Frame>
+            </PivotItem>
+            <PivotItem x:Uid="PivotItem_Tabbed8">
+                <Frame>
+                    <views:Tabbed8Page/>
+                </Frame>
+            </PivotItem>
+            <PivotItem x:Uid="PivotItem_WebView8">
+                <Frame>
+                    <views:WebView8Page/>
+                </Frame>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>

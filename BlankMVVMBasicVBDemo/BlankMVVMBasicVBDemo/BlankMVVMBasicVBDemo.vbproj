@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{6F1F2BD4-FD96-443A-830A-BB979D0A0ABD}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BlankMVVMBasicVBDemo</RootNamespace>
+    <AssemblyName>BlankMVVMBasicVBDemo</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <PackageCertificateKeyFile>BlankMVVMBasicVBDemo_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314,NU1603</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <DocumentationFile>BlankMVVMBasicVBDemo.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <DocumentationFile>BlankMVVMBasicVBDemo.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314,NU1603</NoWarn>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>true</Prefer32Bit>
+    <DocumentationFile>BlankMVVMBasicVBDemo.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314,NU1603</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <DocumentationFile>BlankMVVMBasicVBDemo.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,4231,NU1603</NoWarn>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <DocumentationFile>BlankMVVMBasicVBDemo.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314,NU1603</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>NETFX_CORE,WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>true</Prefer32Bit>
+    <DocumentationFile>BlankMVVMBasicVBDemo.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314,NU1603</NoWarn>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <!-- Nuget package references -->
+    <PackageReference Include="Microsoft.Services.Store.SDK">
+      <Version>10.1705.16001</Version>
+    </PackageReference>
+    <SDKReference Include="Microsoft.Services.Store.Engagement, Version=10.0">
+      <Name>Microsoft Engagement Framework</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.VCLibs, Version=14.0">
+      <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
+    </SDKReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="WindowsAzure.Messaging.Managed">
+      <Version>0.1.7.9</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Services.Store.Engagement">
+      <Version>10.1706.16001</Version>
+    </PackageReference>
+    <SDKReference Include="Microsoft.Services.Store.Engagement, Version=10.0">
+      <Name>Microsoft Engagement Framework</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.VCLibs, Version=14.0">
+      <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
+    </SDKReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>10.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Telerik.UI.for.UniversalWindowsPlatform">
+      <Version>1.0.0.5</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\en-us\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activation\ActivationHandler.vb" />
+    <Compile Include="Services\ActivationService.vb" />
+    <Compile Include="Activation\DefaultLaunchActivationHandler.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.vb">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Styles\_Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\_FontSizes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\_Thickness.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\TextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\ResourceExtensions.vb" />
+    <Compile Include="Helpers\Singleton.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="My Project\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Collections.ObjectModel" />
+    <Import Include="System.ComponentModel" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.IO" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Runtime.CompilerServices" />
+    <Import Include="System.Runtime.InteropServices.WindowsRuntime" />
+    <Import Include="System.Threading.Tasks" />
+    <Import Include="System.Windows.Input" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="Windows.ApplicationModel" />
+    <Import Include="Windows.ApplicationModel.Activation" />
+    <Import Include="Windows.Foundation" />
+    <Import Include="Windows.Foundation.Collections" />
+    <Import Include="Windows.Graphics.Display" />
+    <Import Include="Windows.UI.ViewManagement" />
+    <Import Include="Windows.UI.Xaml" />
+    <Import Include="Windows.UI.Xaml.Controls" />
+    <Import Include="Windows.UI.Xaml.Controls.Primitives" />
+    <Import Include="Windows.UI.Xaml.Data" />
+    <Import Include="Windows.UI.Xaml.Input" />
+    <Import Include="Windows.UI.Xaml.Media" />
+    <Import Include="Windows.UI.Xaml.Media.Imaging" />
+    <Import Include="Windows.UI.Xaml.Navigation" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BlankMVVMBasicVBDemo_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\NavigationService.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\Observable.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\RelayCommand.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\MainPage.xaml.vb">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\MainViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Styles\Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\Blank6Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\Blank6Page.xaml.vb">
+      <DependentUpon>Blank6Page.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\Blank6ViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\Camera6Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\Camera6Page.xaml.vb">
+      <DependentUpon>Camera6Page.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\Camera6ViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EventHandlers\CameraControlEventArgs.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\CameraOrientationExtensions.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\CameraControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\CameraControl.xaml.vb">
+      <DependentUpon>CameraControl.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\SampleDataService.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\SampleOrder.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\Chart6Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\Chart6Page.xaml.vb">
+      <DependentUpon>Chart6Page.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\Chart6ViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\DataPoint.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\Grid6Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\Grid6Page.xaml.vb">
+      <DependentUpon>Grid6Page.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\Grid6ViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\SettingsStorageExtensions.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\Json.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\ImageGallery6Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\ImageGallery6Page.xaml.vb">
+      <DependentUpon>ImageGallery6Page.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\ImageGallery6DetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\ImageGallery6DetailPage.xaml.vb">
+      <DependentUpon>ImageGallery6DetailPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\ImageGallery6ViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\ImageGallery6DetailViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\PlaceholderImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\SampleData\SamplePhoto1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\SampleData\SamplePhoto2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\SampleData\SamplePhoto3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\SampleData\SamplePhoto4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\SampleData\SamplePhoto5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\SampleData\SamplePhoto6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\SampleData\SamplePhoto7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\SampleData\SamplePhoto8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\SampleData\SamplePhoto9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\SampleData\SamplePhoto10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\SampleImage.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Styles\Image.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\Map6Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\Map6Page.xaml.vb">
+      <DependentUpon>Map6Page.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\Map6ViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\LocationService.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\MasterDetail6Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\MasterDetail6Page.xaml.vb">
+      <DependentUpon>MasterDetail6Page.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\MasterDetail6ViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\MasterDetail6DetailControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\MasterDetail6DetailControl.xaml.vb">
+      <DependentUpon>MasterDetail6DetailControl.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\MediaPlayer6Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\MediaPlayer6Page.xaml.vb">
+      <DependentUpon>MediaPlayer6Page.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\MediaPlayer6ViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\EnumToBooleanConverter.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\Settings6Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\Settings6Page.xaml.vb">
+      <DependentUpon>Settings6Page.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\Settings6ViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\ThemeSelectorService.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\Tabbed6Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\Tabbed6Page.xaml.vb">
+      <DependentUpon>Tabbed6Page.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\Tabbed6ViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\WebView6Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\WebView6Page.xaml.vb">
+      <DependentUpon>WebView6Page.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\WebView6ViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\BackgroundTaskService.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BackgroundTasks\BackgroundTask.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BackgroundTasks\BackgroundTask7.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\TaskExtensions.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\FirstRunDisplayService.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\FirstRunDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\FirstRunDialog.xaml.vb">
+      <DependentUpon>FirstRunDialog.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\HubNotifications6Service.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\LiveTile6Service.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\LiveTile6Service.Samples.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\ShareSource6Data.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\ShareSource6Item.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\DataRequestExtensions.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\SharedDataStorageItemsViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\SharedDataViewModelBase.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\SharedDataWebLinkViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\ShareTarget6ViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\ShareTarget6Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\ShareTarget6Page.xaml.vb">
+      <DependentUpon>ShareTarget6Page.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TemplateSelectors\SharedContentTemplateSelector.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activation\ShareTarget6ActivationHandler.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\ShareOperationExtensions.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\StoreNotifications6Service.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\SuspendAndResumeService.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\OnBackgroundEnteringEventArgs.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\SuspensionState.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\ToastNotifications6Service.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\ToastNotifications6Service.Samples.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activation\SchemeActivationHandler.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\UriScheme6ExampleViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\UriScheme6ExamplePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\UriScheme6ExamplePage.xaml.vb">
+      <DependentUpon>UriScheme6ExamplePage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\WhatsNewDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\WhatsNewDialog.xaml.vb">
+      <DependentUpon>WhatsNewDialog.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\WhatsNewDisplayService.vb" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
