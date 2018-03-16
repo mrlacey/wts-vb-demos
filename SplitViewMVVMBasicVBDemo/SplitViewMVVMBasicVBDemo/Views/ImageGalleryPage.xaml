@@ -9,12 +9,11 @@
     xmlns:i="using:Microsoft.Xaml.Interactivity"
     xmlns:models="using:SplitViewMVVMBasicVBDemo.Models"
     NavigationCacheMode="Required"
+    xmlns:fcu ="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,5)"
+    xmlns:cu ="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractNotPresent(Windows.Foundation.UniversalApiContract,5)"
     mc:Ignorable="d">
 
-    <Grid
-        x:Name="ContentArea"
-        Margin="{StaticResource MediumLeftRightMargin}">
-
+    <Grid x:Name="ContentArea">
         <Grid.RowDefinitions>
             <RowDefinition x:Name="TitleRow" Height="48"/>
             <RowDefinition Height="*"/>
@@ -23,13 +22,15 @@
         <TextBlock
             x:Name="TitlePage"
             x:Uid="ImageGallery_Title"
-            Style="{StaticResource PageTitleStyle}" />
+            Style="{StaticResource PageTitleStyle}"
+            Margin="12,0,12,7" />
 
         <GridView
             Grid.Row="1"
             ItemsSource="{x:Bind ViewModel.Source}"
             IsItemClickEnabled="True"
             SelectionMode="None"
+            Padding="{StaticResource MediumLeftRightMargin}"
             Loaded="GridView_Loaded">
             <i:Interaction.Behaviors>
                 <ic:EventTriggerBehavior EventName="ItemClick">
@@ -47,5 +48,23 @@
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
+        <!--  Adaptive triggers  -->
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="WindowStates">
+                <VisualState x:Name="WideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="640"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TitlePage.Margin" cu:Value="60,0,12,7" fcu:Value="12,0,12,7"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </Page>

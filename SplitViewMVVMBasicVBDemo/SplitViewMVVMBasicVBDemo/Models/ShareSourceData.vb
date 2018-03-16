@@ -1,4 +1,6 @@
-﻿Imports Windows.Storage
+﻿Imports SplitViewMVVMBasicVBDemo.Helpers
+
+Imports Windows.Storage
 
 Namespace Models
     Public Class ShareSourceData
@@ -9,9 +11,9 @@ Namespace Models
 
         Friend Property Items As List(Of ShareSourceItem)
 
-        Public Sub New(ByVal title As String, ByVal Optional desciption As String = Nothing)
+        Public Sub New(title As String, Optional desciption As String = Nothing)
             If String.IsNullOrEmpty(title) Then
-                Throw New ArgumentException($"The parameter '{NameOf(title)}' can not be null or empty.")
+                Throw New ArgumentException("ExceptionShareSourceDataTitleIsNullOrEmpty".GetLocalized(), NameOf(title))
             End If
 
             Items = New List(Of ShareSourceItem)()
@@ -19,15 +21,15 @@ Namespace Models
             Description = desciption
         End Sub
 
-        Public Sub SetText(ByVal text As String)
+        Public Sub SetText(text As String)
             If String.IsNullOrEmpty(text) Then
-                Throw New ArgumentException($"The parameter '{NameOf(text)}' is null or empty")
+                Throw New ArgumentException("ExceptionShareSourceDataTitleIsNullOrEmpty".GetLocalized(), nameof(text))
             End If
 
             Items.Add(ShareSourceItem.FromText(text))
         End Sub
 
-        Public Sub SetWebLink(ByVal webLink As Uri)
+        Public Sub SetWebLink(webLink As Uri)
             If webLink Is Nothing Then
                 Throw New ArgumentNullException(NameOf(webLink))
             End If
@@ -35,7 +37,9 @@ Namespace Models
             Items.Add(ShareSourceItem.FromWebLink(webLink))
         End Sub
 
-        Public Sub SetApplicationLink(ByVal applicationLink As Uri)
+        ' To share a link to your app you must first register it to handle URI activation
+        ' More details at https://docs.microsoft.com/en-us/windows/uwp/launch-resume/handle-uri-activation
+        Public Sub SetApplicationLink(applicationLink As Uri)
             If applicationLink Is Nothing Then
                 Throw New ArgumentNullException(NameOf(applicationLink))
             End If
@@ -43,33 +47,36 @@ Namespace Models
             Items.Add(ShareSourceItem.FromApplicationLink(applicationLink))
         End Sub
 
-        Public Sub SetHtml(ByVal html As String)
+        Public Sub SetHtml(html As String)
             If String.IsNullOrEmpty(html) Then
-                Throw New ArgumentException($"Parameter '{NameOf(html)}' to share is null or empty.")
+                Throw New ArgumentException("ExceptionShareSourceDataHtmlIsNullOrEmpty".GetLocalized(), nameof(html))
             End If
 
             Items.Add(ShareSourceItem.FromHtml(html))
         End Sub
 
-        Public Sub SetImage(ByVal image As StorageFile)
+        Public Sub SetImage(image As StorageFile)
             If image Is Nothing Then
-                Throw New ArgumentNullException($"{NameOf(image)}")
+                Throw New ArgumentNullException(NameOf(image))
             End If
 
             Items.Add(ShareSourceItem.FromImage(image))
         End Sub
 
-        Public Sub SetStorageItems(ByVal storageItems As IEnumerable(Of IStorageItem))
+        Public Sub SetStorageItems(storageItems As IEnumerable(Of IStorageItem))
             If storageItems Is Nothing OrElse Not storageItems.Any() Then
-                Throw New ArgumentException($"Paramter '{NameOf(storageItems)}' is null or does not contains any element.")
+                Throw New ArgumentException("ExceptionShareSourceDataStorageItemsIsNullOrEmpty".GetLocalized(), nameof(storageItems))
             End If
 
             Items.Add(ShareSourceItem.FromStorageItems(storageItems))
         End Sub
 
-        Public Sub SetDeferredContent(ByVal deferredDataFormatId As String, ByVal getDeferredDataAsyncFunc As Func(Of Task(Of Object)))
+        ' Use this method to add content to share when you do not want to process the data until the target app actually requests it.
+        ' The defferedDataFormatId parameter must be a const value from StandardDataFormats class.
+        ' The getDeferredDataAsyncFunc parameter is the function that returns the object you want to share.
+        Public Sub SetDeferredContent(deferredDataFormatId As String, getDeferredDataAsyncFunc As Func(Of Task(Of Object)))
             If String.IsNullOrEmpty(deferredDataFormatId) Then
-                Throw New ArgumentException($"Parameter '{NameOf(deferredDataFormatId)}' to share is null or empty")
+                Throw New ArgumentException("ExceptionShareSourceDataDeferredDataFormatIdIsNullOrEmpty".GetLocalized(), nameof(deferredDataFormatId))
             End If
 
             Items.Add(ShareSourceItem.FromDeferredContent(deferredDataFormatId, getDeferredDataAsyncFunc))

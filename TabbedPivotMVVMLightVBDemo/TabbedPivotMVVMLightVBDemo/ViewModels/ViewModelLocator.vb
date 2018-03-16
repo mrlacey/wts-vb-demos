@@ -1,6 +1,6 @@
-﻿Imports GalaSoft.MvvmLight.Ioc
+﻿Imports CommonServiceLocator
 
-Imports Microsoft.Practices.ServiceLocation
+Imports GalaSoft.MvvmLight.Ioc
 
 Imports TabbedPivotMVVMLightVBDemo.Services
 Imports TabbedPivotMVVMLightVBDemo.Views
@@ -15,113 +15,130 @@ Namespace ViewModels
 
             SimpleIoc.[Default].Register(Function() New NavigationServiceEx())
             Register(Of PivotViewModel, PivotPage)()
-            Register(Of MainViewModel, MainPage)()
-            Register(Of Blank8ViewModel, Blank8Page)()
-            Register(Of Camera8ViewModel, Camera8Page)()
-            Register(Of Chart8ViewModel, Chart8Page)()
-            Register(Of Grid8ViewModel, Grid8Page)()
-            Register(Of ImageGallery8ViewModel, ImageGallery8Page)()
-            Register(Of ImageGallery8DetailViewModel, ImageGallery8DetailPage)()
-            Register(Of Map8ViewModel, Map8Page)()
-            Register(Of MasterDetail8ViewModel, MasterDetail8Page)()
-            Register(Of MediaPlayer8ViewModel, MediaPlayer8Page)()
-            Register(Of Settings8ViewModel, Settings8Page)()
-            Register(Of Tabbed8ViewModel, Tabbed8Page)()
-            Register(Of WebView8ViewModel, WebView8Page)()
-            Register(Of ShareTarget8ViewModel, ShareTarget8Page)()
-            Register(Of UriScheme8ExampleViewModel, UriScheme8ExamplePage)()
+            Register(Of BlankViewModel, BlankPage)()
+            Register(Of SettingsViewModel, SettingsPage)()
+            Register(Of Blank1ViewModel, Blank1Page)()
+            Register(Of CameraViewModel, CameraPage)()
+            Register(Of ChartViewModel, ChartPage)()
+            Register(Of GridViewModel, GridPage)()
+            Register(Of ImageGalleryViewModel, ImageGalleryPage)()
+            Register(Of ImageGalleryDetailViewModel, ImageGalleryDetailPage)()
+            Register(Of MapViewModel, MapPage)()
+            Register(Of MasterDetailViewModel, MasterDetailPage)()
+            Register(Of MediaPlayerViewModel, MediaPlayerPage)()
+            Register(Of TabbedViewModel, TabbedPage)()
+            Register(Of WebViewViewModel, WebViewPage)()
+            Register(Of ShareTargetViewModel, ShareTargetPage)()
+            Register(Of UriSchemeExampleViewModel, UriSchemeExamplePage)()
         End Sub
 
-        Public ReadOnly Property UriScheme8ExampleViewModel As UriScheme8ExampleViewModel
+
+        Public ReadOnly Property UriSchemeExampleViewModel As UriSchemeExampleViewModel
             Get
-                Return ServiceLocator.Current.GetInstance(Of UriScheme8ExampleViewModel)
+                Return ServiceLocator.Current.GetInstance(Of UriSchemeExampleViewModel)
             End Get
         End Property
 
-        Public ReadOnly Property ShareTarget8ViewModel() As ShareTarget8ViewModel
+
+        Public ReadOnly Property ShareTargetViewModel As ShareTargetViewModel
             Get
-                Return ServiceLocator.Current.GetInstance(Of ShareTarget8ViewModel)()
+                Return ServiceLocator.Current.GetInstance(Of ShareTargetViewModel)()
             End Get
         End Property
 
-        Public ReadOnly Property WebView8ViewModel() As WebView8ViewModel
-          Get
-            Return ServiceLocator.Current.GetInstance(Of WebView8ViewModel)()
-          End Get
-        End Property
 
-        Public ReadOnly Property Tabbed8ViewModel() As Tabbed8ViewModel
-          Get
-            Return ServiceLocator.Current.GetInstance(Of Tabbed8ViewModel)()
-          End Get
-        End Property
-
-        Public ReadOnly Property Settings8ViewModel() As Settings8ViewModel
-          Get
-            Return ServiceLocator.Current.GetInstance(Of Settings8ViewModel)()
-          End Get
-        End Property
-
-        Public ReadOnly Property MediaPlayer8ViewModel() As MediaPlayer8ViewModel
-          Get
-            Return ServiceLocator.Current.GetInstance(Of MediaPlayer8ViewModel)()
-          End Get
-        End Property
-
-        Public ReadOnly Property MasterDetail8ViewModel() As MasterDetail8ViewModel
-          Get
-            Return ServiceLocator.Current.GetInstance(Of MasterDetail8ViewModel)()
-          End Get
-        End Property
-
-        Public ReadOnly Property Map8ViewModel() As Map8ViewModel
-          Get
-            Return ServiceLocator.Current.GetInstance(Of Map8ViewModel)()
-          End Get
-        End Property
-
-        Public ReadOnly Property ItemNameDetailViewModel As ImageGallery8DetailViewModel
+        Public ReadOnly Property WebViewViewModel As WebViewViewModel
             Get
-                Return ServiceLocator.Current.GetInstance(Of ImageGallery8DetailViewModel)()
+                Return ServiceLocator.Current.GetInstance(Of WebViewViewModel)()
             End Get
         End Property
 
-        Public ReadOnly Property ImageGallery8ViewModel() As ImageGallery8ViewModel
-          Get
-            Return ServiceLocator.Current.GetInstance(Of ImageGallery8ViewModel)()
-          End Get
+
+        Public ReadOnly Property TabbedViewModel As TabbedViewModel
+            Get
+                Return ServiceLocator.Current.GetInstance(Of TabbedViewModel)()
+            End Get
         End Property
 
-        Public ReadOnly Property Grid8ViewModel() As Grid8ViewModel
-          Get
-            Return ServiceLocator.Current.GetInstance(Of Grid8ViewModel)()
-          End Get
+
+        Public ReadOnly Property MediaPlayerViewModel As MediaPlayerViewModel
+            Get
+                ' A Guid is generated as a unique key for each instance as reusing the same VM instance in multiple MediaPlayerElement instances can cause playback errors
+                Return ServiceLocator.Current.GetInstance(Of MediaPlayerViewModel)(Guid.NewGuid().ToString())
+            End Get
         End Property
 
-        Public ReadOnly Property Chart8ViewModel() As Chart8ViewModel
-          Get
-            Return ServiceLocator.Current.GetInstance(Of Chart8ViewModel)()
-          End Get
+
+        Public ReadOnly Property MasterDetailViewModel As MasterDetailViewModel
+            Get
+                Return ServiceLocator.Current.GetInstance(Of MasterDetailViewModel)()
+            End Get
         End Property
 
-        Public ReadOnly Property Camera8ViewModel() As Camera8ViewModel
-          Get
-            Return ServiceLocator.Current.GetInstance(Of Camera8ViewModel)()
-          End Get
+
+        Public ReadOnly Property MapViewModel As MapViewModel
+            Get
+                Return ServiceLocator.Current.GetInstance(Of MapViewModel)()
+            End Get
         End Property
 
-        Public ReadOnly Property Blank8ViewModel() As Blank8ViewModel
-          Get
-            Return ServiceLocator.Current.GetInstance(Of Blank8ViewModel)()
-          End Get
+
+        Public ReadOnly Property ImageGalleryDetailViewModel As ImageGalleryDetailViewModel
+            Get
+                Return ServiceLocator.Current.GetInstance(Of ImageGalleryDetailViewModel)()
+            End Get
         End Property
 
-        Public ReadOnly Property MainViewModel() As MainViewModel
-          Get
-            Return ServiceLocator.Current.GetInstance(Of MainViewModel)()
-          End Get
+
+        Public ReadOnly Property ImageGalleryViewModel As ImageGalleryViewModel
+            Get
+                Return ServiceLocator.Current.GetInstance(Of ImageGalleryViewModel)()
+            End Get
         End Property
-        Public ReadOnly Property PivotViewModel() As PivotViewModel
+
+
+        Public ReadOnly Property GridViewModel As GridViewModel
+            Get
+                Return ServiceLocator.Current.GetInstance(Of GridViewModel)()
+            End Get
+        End Property
+
+
+        Public ReadOnly Property ChartViewModel As ChartViewModel
+            Get
+                Return ServiceLocator.Current.GetInstance(Of ChartViewModel)()
+            End Get
+        End Property
+
+
+        Public ReadOnly Property CameraViewModel As CameraViewModel
+            Get
+                Return ServiceLocator.Current.GetInstance(Of CameraViewModel)()
+            End Get
+        End Property
+
+
+        Public ReadOnly Property Blank1ViewModel As Blank1ViewModel
+            Get
+                Return ServiceLocator.Current.GetInstance(Of Blank1ViewModel)()
+            End Get
+        End Property
+
+
+        Public ReadOnly Property SettingsViewModel As SettingsViewModel
+            Get
+                Return ServiceLocator.Current.GetInstance(Of SettingsViewModel)()
+            End Get
+        End Property
+
+
+        Public ReadOnly Property BlankViewModel As BlankViewModel
+            Get
+                Return ServiceLocator.Current.GetInstance(Of BlankViewModel)()
+            End Get
+        End Property
+
+        Public ReadOnly Property PivotViewModel As PivotViewModel
             Get
                 Return ServiceLocator.Current.GetInstance(Of PivotViewModel)()
             End Get

@@ -4,20 +4,21 @@ Imports TabbedPivotMVVMBasicVBDemo.Services
 Namespace Activation
     Friend Class DefaultLaunchActivationHandler
         Inherits ActivationHandler(Of LaunchActivatedEventArgs)
+
         Private ReadOnly _navElement As Type
-    
+
         Public Sub New(navElement As Type)
             _navElement = navElement
         End Sub
-    
+
         Protected Overrides Async Function HandleInternalAsync(args As LaunchActivatedEventArgs) As Task
             ' When the navigation stack isn't restored, navigate to the first page and configure
             ' the new page by passing required information in the navigation parameter
             NavigationService.Navigate(_navElement, args.Arguments)
 
-            ' TODO WTS: This is a sample on how to show a toast notification.
+            ' TODO WTS: Remove or change this sample which shows a toast notification when the app is launched.
             ' You can use this sample to create toast notifications where needed in your app.
-            Singleton(Of ToastNotifications3Service).Instance.ShowToastNotificationSample()
+            Singleton(Of ToastNotificationsService).Instance.ShowToastNotificationSample()
             Await Task.CompletedTask
         End Function
 

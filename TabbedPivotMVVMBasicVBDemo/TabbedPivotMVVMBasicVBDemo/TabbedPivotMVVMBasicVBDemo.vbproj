@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{719F25DA-FF43-4C3A-8058-606E6481524B}</ProjectGuid>
+    <ProjectGuid>{D81029F9-9AD4-4A90-B4B5-4DEAC806A6E8}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TabbedPivotMVVMBasicVBDemo</RootNamespace>
@@ -106,7 +106,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.0.1</Version>
+      <Version>6.0.6</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
       <Version>2.0.0</Version>
@@ -122,13 +122,16 @@
       <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
     </SDKReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
-      <Version>2.0.0</Version>
+      <Version>2.2.0</Version>
     </PackageReference>
     <PackageReference Include="WindowsAzure.Messaging.Managed">
       <Version>0.1.7.9</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp">
+      <Version>2.2.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Services.Store.Engagement">
-      <Version>10.1706.16001</Version>
+      <Version>10.1711.28001</Version>
     </PackageReference>
     <SDKReference Include="Microsoft.Services.Store.Engagement, Version=10.0">
       <Name>Microsoft Engagement Framework</Name>
@@ -136,14 +139,17 @@
     <SDKReference Include="Microsoft.VCLibs, Version=14.0">
       <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
     </SDKReference>
-    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
-      <Version>2.0.0</Version>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI">
+      <Version>2.2.0</Version>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>10.0.3</Version>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>2.2.0</Version>
     </PackageReference>
     <PackageReference Include="Telerik.UI.for.UniversalWindowsPlatform">
-      <Version>1.0.0.5</Version>
+      <Version>1.0.0.9</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -270,18 +276,18 @@
     <Compile Include="Helpers\RelayCommand.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\MainPage.xaml">
+    <Page Include="Views\BlankPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\MainPage.xaml.vb">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Views\BlankPage.xaml.vb">
+      <DependentUpon>BlankPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\MainViewModel.vb" />
+    <Compile Include="ViewModels\BlankViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Styles\Page.xaml">
@@ -290,32 +296,58 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Blank3Page.xaml">
+    <Compile Include="Helpers\SettingsStorageExtensions.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\Json.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\EnumToBooleanConverter.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\SettingsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Blank3Page.xaml.vb">
-      <DependentUpon>Blank3Page.xaml</DependentUpon>
+    <Compile Include="Views\SettingsPage.xaml.vb">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\Blank3ViewModel.vb" />
+    <Compile Include="ViewModels\SettingsViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Camera3Page.xaml">
+    <Compile Include="Services\ThemeSelectorService.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\Blank1Page.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Camera3Page.xaml.vb">
-      <DependentUpon>Camera3Page.xaml</DependentUpon>
+    <Compile Include="Views\Blank1Page.xaml.vb">
+      <DependentUpon>Blank1Page.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\Camera3ViewModel.vb" />
+    <Compile Include="ViewModels\Blank1ViewModel.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\CameraPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\CameraPage.xaml.vb">
+      <DependentUpon>CameraPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModels\CameraViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventHandlers\CameraControlEventArgs.vb" />
@@ -341,69 +373,63 @@
     <Compile Include="Models\SampleOrder.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Chart3Page.xaml">
+    <Page Include="Views\ChartPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Chart3Page.xaml.vb">
-      <DependentUpon>Chart3Page.xaml</DependentUpon>
+    <Compile Include="Views\ChartPage.xaml.vb">
+      <DependentUpon>ChartPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\Chart3ViewModel.vb" />
+    <Compile Include="ViewModels\ChartViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\DataPoint.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Grid3Page.xaml">
+    <Page Include="Views\GridPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Grid3Page.xaml.vb">
-      <DependentUpon>Grid3Page.xaml</DependentUpon>
+    <Compile Include="Views\GridPage.xaml.vb">
+      <DependentUpon>GridPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\Grid3ViewModel.vb" />
+    <Compile Include="ViewModels\GridViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\SettingsStorageExtensions.vb" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Helpers\Json.vb" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Views\ImageGallery3Page.xaml">
+    <Page Include="Views\ImageGalleryPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\ImageGallery3Page.xaml.vb">
-      <DependentUpon>ImageGallery3Page.xaml</DependentUpon>
+    <Compile Include="Views\ImageGalleryPage.xaml.vb">
+      <DependentUpon>ImageGalleryPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\ImageGallery3DetailPage.xaml">
+    <Page Include="Views\ImageGalleryDetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\ImageGallery3DetailPage.xaml.vb">
-      <DependentUpon>ImageGallery3DetailPage.xaml</DependentUpon>
+    <Compile Include="Views\ImageGalleryDetailPage.xaml.vb">
+      <DependentUpon>ImageGalleryDetailPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\ImageGallery3ViewModel.vb" />
+    <Compile Include="ViewModels\ImageGalleryViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\ImageGallery3DetailViewModel.vb" />
+    <Compile Include="ViewModels\ImageGalleryDetailViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\PlaceholderImage.png" />
@@ -448,18 +474,18 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Map3Page.xaml">
+    <Page Include="Views\MapPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Map3Page.xaml.vb">
-      <DependentUpon>Map3Page.xaml</DependentUpon>
+    <Compile Include="Views\MapPage.xaml.vb">
+      <DependentUpon>MapPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\Map3ViewModel.vb" />
+    <Compile Include="ViewModels\MapViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\map.png" />
@@ -468,91 +494,71 @@
     <Compile Include="Services\LocationService.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\MasterDetail3Page.xaml">
+    <Page Include="Views\MasterDetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\MasterDetail3Page.xaml.vb">
-      <DependentUpon>MasterDetail3Page.xaml</DependentUpon>
+    <Compile Include="Views\MasterDetailPage.xaml.vb">
+      <DependentUpon>MasterDetailPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\MasterDetail3ViewModel.vb" />
+    <Compile Include="ViewModels\MasterDetailViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\MasterDetail3DetailControl.xaml">
+    <Page Include="Views\MasterDetailDetailControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\MasterDetail3DetailControl.xaml.vb">
-      <DependentUpon>MasterDetail3DetailControl.xaml</DependentUpon>
+    <Compile Include="Views\MasterDetailDetailControl.xaml.vb">
+      <DependentUpon>MasterDetailDetailControl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\MediaPlayer3Page.xaml">
+    <Page Include="Views\MediaPlayerPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\MediaPlayer3Page.xaml.vb">
-      <DependentUpon>MediaPlayer3Page.xaml</DependentUpon>
+    <Compile Include="Views\MediaPlayerPage.xaml.vb">
+      <DependentUpon>MediaPlayerPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\MediaPlayer3ViewModel.vb" />
+    <Compile Include="ViewModels\MediaPlayerViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\EnumToBooleanConverter.vb" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Views\Settings3Page.xaml">
+    <Page Include="Views\TabbedPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Settings3Page.xaml.vb">
-      <DependentUpon>Settings3Page.xaml</DependentUpon>
+    <Compile Include="Views\TabbedPage.xaml.vb">
+      <DependentUpon>TabbedPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\Settings3ViewModel.vb" />
+    <Compile Include="ViewModels\TabbedViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\ThemeSelectorService.vb" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Views\Tabbed3Page.xaml">
+    <Page Include="Views\WebViewPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Tabbed3Page.xaml.vb">
-      <DependentUpon>Tabbed3Page.xaml</DependentUpon>
+    <Compile Include="Views\WebViewPage.xaml.vb">
+      <DependentUpon>WebViewPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\Tabbed3ViewModel.vb" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Views\WebView3Page.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Views\WebView3Page.xaml.vb">
-      <DependentUpon>WebView3Page.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ViewModels\WebView3ViewModel.vb" />
+    <Compile Include="ViewModels\WebViewViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\BackgroundTaskService.vb" />
@@ -561,10 +567,31 @@
     <Compile Include="BackgroundTasks\BackgroundTask.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackgroundTasks\BackgroundTask4.vb" />
+    <Compile Include="BackgroundTasks\BackgroundTask1.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\TaskExtensions.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\DragAndDrop\DropConfiguration.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\DragAndDrop\ListViewDropConfiguration.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\DragDropCompletedData.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\DragDropData.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\DragDropStartingData.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\DragAndDrop\DragDropService.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\DragAndDrop\VisualDropConfiguration.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\FirstRunDisplayService.vb" />
@@ -581,22 +608,28 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\HubNotifications3Service.vb" />
+    <Compile Include="Services\HubNotificationsService.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\LiveTile3Service.vb" />
+    <Compile Include="Services\LiveTileService.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\LiveTile3Service.Samples.vb" />
+    <Compile Include="Services\LiveTileService.Samples.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\ShareSource3Data.vb" />
+    <Compile Include="Services\ViewLifetimeControl.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\ShareSource3Item.vb" />
+    <Compile Include="Services\WindowManagerService.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\DataRequestExtensions.vb" />
+    <Compile Include="Models\ShareSourceData.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\ShareSourceItem.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\DataRequestExtensions.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ViewModels\SharedDataStorageItemsViewModel.vb" />
@@ -608,30 +641,30 @@
     <Compile Include="ViewModels\SharedDataWebLinkViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\ShareTarget3ViewModel.vb" />
+    <Compile Include="ViewModels\ShareTargetViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\ShareTarget3Page.xaml">
+    <Page Include="Views\ShareTargetPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\ShareTarget3Page.xaml.vb">
-      <DependentUpon>ShareTarget3Page.xaml</DependentUpon>
+    <Compile Include="Views\ShareTargetPage.xaml.vb">
+      <DependentUpon>ShareTargetPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TemplateSelectors\SharedContentTemplateSelector.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activation\ShareTarget3ActivationHandler.vb" />
+    <Compile Include="Activation\ShareTargetActivationHandler.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\ShareOperationExtensions.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\StoreNotifications3Service.vb" />
+    <Compile Include="Services\StoreNotificationsService.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\SuspendAndResumeService.vb" />
@@ -643,10 +676,10 @@
     <Compile Include="Services\SuspensionState.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\ToastNotifications3Service.vb" />
+    <Compile Include="Services\ToastNotificationsService.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\ToastNotifications3Service.Samples.vb" />
+    <Compile Include="Services\ToastNotificationsService.Samples.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activation\SchemeActivationHandler.vb" />
@@ -655,18 +688,21 @@
     <Content Include="Assets\Logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ViewModels\UriScheme3ExampleViewModel.vb" />
+    <Compile Include="ViewModels\UriSchemeExampleViewModel.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\UriScheme3ExamplePage.xaml">
+    <Page Include="Views\UriSchemeExamplePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\UriScheme3ExamplePage.xaml.vb">
-      <DependentUpon>UriScheme3ExamplePage.xaml</DependentUpon>
+    <Compile Include="Views\UriSchemeExamplePage.xaml.vb">
+      <DependentUpon>UriSchemeExamplePage.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activation\WebToAppLinkActivationHandler.vb" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\WhatsNewDialog.xaml">

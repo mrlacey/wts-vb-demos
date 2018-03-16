@@ -6,6 +6,7 @@ Namespace ViewModels
         Inherits Observable
 
         Private _photoTakenCommand As ICommand
+
         Private _photo As BitmapImage
 
         Public Property Photo As BitmapImage

@@ -1,16 +1,17 @@
-﻿Imports TabbedPivotMVVMBasicVBDemo.Helpers
+﻿Imports Microsoft.Toolkit.Uwp.Helpers
+
 Imports TabbedPivotMVVMBasicVBDemo.Views
 
 Namespace Services
     Public NotInheritable Class FirstRunDisplayService
+        Shared shown As Boolean = False
+
         Private Sub New()
         End Sub
-        Friend Shared Async Function ShowIfAppropriateAsync() As Task
-            Dim hasShownFirstRun As Boolean = False
-            hasShownFirstRun = Await Windows.Storage.ApplicationData.Current.LocalSettings.ReadAsync(Of Boolean)(nameof(hasShownFirstRun))
 
-            If Not hasShownFirstRun Then
-                Await Windows.Storage.ApplicationData.Current.LocalSettings.SaveAsync(nameof(hasShownFirstRun), True)
+        Friend Shared Async Function ShowIfAppropriateAsync() As Task
+            If SystemInformation.IsFirstRun AndAlso Not shown Then
+                shown = true
                 Dim dialog = New FirstRunDialog()
                 Await dialog.ShowAsync()
             End If

@@ -5,70 +5,71 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     DataContext="{Binding PivotViewModel, Source={StaticResource Locator}}"
+    Style="{StaticResource PageStyle}"
     xmlns:model="using:TabbedPivotMVVMLightVBDemo.Models"
     xmlns:views="using:TabbedPivotMVVMLightVBDemo.Views"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
         <Pivot x:Uid="PivotPage">
-            <PivotItem x:Uid="PivotItem_Main">
+            <PivotItem x:Uid="PivotItem_Blank">
                 <Frame>
-                    <views:MainPage/>
+                    <views:BlankPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Blank8">
+            <PivotItem x:Uid="PivotItem_Settings">
                 <Frame>
-                    <views:Blank8Page/>
+                    <views:SettingsPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Camera8">
+            <PivotItem x:Uid="PivotItem_Blank1">
                 <Frame>
-                    <views:Camera8Page/>
+                    <views:Blank1Page/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Chart8">
+            <PivotItem x:Uid="PivotItem_Camera">
                 <Frame>
-                    <views:Chart8Page/>
+                    <views:CameraPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Grid8">
+            <PivotItem x:Uid="PivotItem_Chart">
                 <Frame>
-                    <views:Grid8Page/>
+                    <views:ChartPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_ImageGallery8">
+            <PivotItem x:Uid="PivotItem_Grid">
                 <Frame>
-                    <views:ImageGallery8Page/>
+                    <views:GridPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Map8">
+            <PivotItem x:Uid="PivotItem_ImageGallery">
                 <Frame>
-                    <views:Map8Page/>
+                    <views:ImageGalleryPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_MasterDetail8">
+            <PivotItem x:Uid="PivotItem_Map">
                 <Frame>
-                    <views:MasterDetail8Page/>
+                    <views:MapPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_MediaPlayer8">
+            <PivotItem x:Uid="PivotItem_MasterDetail">
                 <Frame>
-                    <views:MediaPlayer8Page/>
+                    <views:MasterDetailPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Settings8">
+            <PivotItem x:Uid="PivotItem_MediaPlayer">
                 <Frame>
-                    <views:Settings8Page/>
+                    <views:MediaPlayerPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Tabbed8">
+            <PivotItem x:Uid="PivotItem_Tabbed">
                 <Frame>
-                    <views:Tabbed8Page/>
+                    <views:TabbedPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_WebView8">
+            <PivotItem x:Uid="PivotItem_WebView">
                 <Frame>
-                    <views:WebView8Page/>
+                    <views:WebViewPage/>
                 </Frame>
             </PivotItem>
         </Pivot>

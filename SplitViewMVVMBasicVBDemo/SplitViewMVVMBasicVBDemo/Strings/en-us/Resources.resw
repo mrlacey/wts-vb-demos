@@ -117,14 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Main_Title.Text" xml:space="preserve">
-    <value>Main</value>
-    <comment>Page title for Main</comment>
-  </data>
-  <data name="Shell_Main" xml:space="preserve">
-    <value>Main</value>
-    <comment>Navigation view item name for Main</comment>
-  </data>
   <data name="Blank_Title.Text" xml:space="preserve">
     <value>Blank</value>
     <comment>Page title for Blank</comment>
@@ -133,90 +125,9 @@
     <value>Blank</value>
     <comment>Navigation view item name for Blank</comment>
   </data>
-  <data name="Camera_Title.Text" xml:space="preserve">
-    <value>Camera</value>
-  </data>
-  <data name="Camera_Exception_UnauthorizedAccess" xml:space="preserve">
-    <value>The app was denied access to the camera or microphone.</value>
-  </data>
-  <data name="Camera_Exception_NotSupported" xml:space="preserve">
-    <value>No video capture devices found.</value>
-  </data>
-  <data name="CameraControl_CameraButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">    
-    <value>Take a photo</value>
-    <comment>Camera control button automation name property</comment>
-  </data>
-  <data name="CameraControl_CameraButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
-    <value>Take a photo</value>
-    <comment>Camera control button automation tooltip property</comment>
-  </data>
-  <data name="CameraControl_SwitchCameraButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">    
-    <value>Switch camera</value>
-    <comment>Camera control switch camera button automation name property</comment>
-  </data>
-  <data name="CameraControl_SwitchCameraButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
-    <value>Switch camera</value>
-    <comment>Camera control switch camera button automation tooltip property</comment>
-  </data>
-  <data name="Shell_Camera" xml:space="preserve">
-    <value>Camera</value>
-    <comment>Navigation view item name for Camera</comment>
-  </data>
-  <data name="Chart_Title.Text" xml:space="preserve">
-    <value>Chart</value>
-    <comment>Page title for Chart</comment>
-  </data>
-  <data name="Shell_Chart" xml:space="preserve">
-    <value>Chart</value>
-    <comment>Navigation view item name for Chart</comment>
-  </data>
-  <data name="Grid_Title.Text" xml:space="preserve">
-    <value>Grid</value>
-    <comment>Page title for Grid</comment>
-  </data>
-  <data name="Shell_Grid" xml:space="preserve">
-    <value>Grid</value>
-    <comment>Navigation view item name for Grid</comment>
-  </data>
   <data name="ExceptionSettingsStorageExtensionsFileNameIsNullOrEmpty" xml:space="preserve">
     <value>File name is null or empty. Specify a valid file name</value>
     <comment>File name is null or empty to save file in settings storage extensions</comment>
-  </data>
-  <data name="ImageGallery_Title.Text" xml:space="preserve">
-    <value>ImageGallery</value>
-    <comment>Page title for ImageGallery</comment>
-  </data>
-  <data name="Shell_ImageGallery" xml:space="preserve">
-    <value>ImageGallery</value>
-    <comment>Navigation view item name for ImageGallery</comment>
-  </data>
-  <data name="Map_YourLocation" xml:space="preserve">
-    <value>Your location</value>
-    <comment>Your location text on map page</comment>
-  </data>
-  <data name="ExceptionLocationServiceStartListeningCanNotBeCalled" xml:space="preserve">
-    <value>The StartListening method cannot be called before the InitializeAsync method.</value>
-    <comment>Start listening cannot be called before the initialize in location service</comment>
-  </data>
-  <data name="Shell_Map" xml:space="preserve">
-    <value>Map</value>
-    <comment>Navigation view item name for Map</comment>
-  </data>
-  <data name="MasterDetail_Title.Text" xml:space="preserve">
-    <value>MasterDetail</value>
-    <comment>Page title for MasterDetail</comment>
-  </data>
-  <data name="MasterDetail_NoSelection.Text" xml:space="preserve">
-    <value>Select an item from the list.</value>
-    <comment>No selection text for MasterDetail</comment>
-  </data>
-  <data name="Shell_MasterDetail" xml:space="preserve">
-    <value>MasterDetail</value>
-    <comment>Navigation view item name for MasterDetail</comment>
-  </data>
-  <data name="Shell_MediaPlayer" xml:space="preserve">
-    <value>MediaPlayer</value>
-    <comment>Navigation view item name for MediaPlayer</comment>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
     <value>Settings</value>
@@ -270,6 +181,95 @@
   <data name="Shell_Settings" xml:space="preserve">
     <value>Settings</value>
     <comment>Navigation view item name for Settings</comment>
+  </data>
+  <data name="Blank1_Title.Text" xml:space="preserve">
+    <value>Blank1</value>
+    <comment>Page title for Blank1</comment>
+  </data>
+  <data name="Shell_Blank1" xml:space="preserve">
+    <value>Blank1</value>
+    <comment>Navigation view item name for Blank1</comment>
+  </data>
+  <data name="Camera_Title.Text" xml:space="preserve">
+    <value>Camera</value>
+  </data>
+  <data name="Camera_Exception_UnauthorizedAccess" xml:space="preserve">
+    <value>The app was denied access to the camera or microphone.</value>
+  </data>
+  <data name="Camera_Exception_NotSupported" xml:space="preserve">
+    <value>No video capture devices found.</value>
+  </data>
+  <data name="CameraControl_CameraButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">    
+    <value>Take a photo</value>
+    <comment>Camera control button automation name property</comment>
+  </data>
+  <data name="CameraControl_CameraButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Take a photo</value>
+    <comment>Camera control button automation tooltip property</comment>
+  </data>
+  <data name="CameraControl_SwitchCameraButton.[using:Windows.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">    
+    <value>Switch camera</value>
+    <comment>Camera control switch camera button automation name property</comment>
+  </data>
+  <data name="CameraControl_SwitchCameraButton.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Switch camera</value>
+    <comment>Camera control switch camera button automation tooltip property</comment>
+  </data>
+  <data name="Shell_Camera" xml:space="preserve">
+    <value>Camera</value>
+    <comment>Navigation view item name for Camera</comment>
+  </data>
+  <data name="Chart_Title.Text" xml:space="preserve">
+    <value>Chart</value>
+    <comment>Page title for Chart</comment>
+  </data>
+  <data name="Shell_Chart" xml:space="preserve">
+    <value>Chart</value>
+    <comment>Navigation view item name for Chart</comment>
+  </data>
+  <data name="Grid_Title.Text" xml:space="preserve">
+    <value>Grid</value>
+    <comment>Page title for Grid</comment>
+  </data>
+  <data name="Shell_Grid" xml:space="preserve">
+    <value>Grid</value>
+    <comment>Navigation view item name for Grid</comment>
+  </data>
+  <data name="ImageGallery_Title.Text" xml:space="preserve">
+    <value>ImageGallery</value>
+    <comment>Page title for ImageGallery</comment>
+  </data>
+  <data name="Shell_ImageGallery" xml:space="preserve">
+    <value>ImageGallery</value>
+    <comment>Navigation view item name for ImageGallery</comment>
+  </data>
+  <data name="Map_YourLocation" xml:space="preserve">
+    <value>Your location</value>
+    <comment>Your location text on map page</comment>
+  </data>
+  <data name="ExceptionLocationServiceStartListeningCanNotBeCalled" xml:space="preserve">
+    <value>The StartListening method cannot be called before the InitializeAsync method.</value>
+    <comment>Start listening cannot be called before the initialize in location service</comment>
+  </data>
+  <data name="Shell_Map" xml:space="preserve">
+    <value>Map</value>
+    <comment>Navigation view item name for Map</comment>
+  </data>
+  <data name="MasterDetail_Title.Text" xml:space="preserve">
+    <value>MasterDetail</value>
+    <comment>Page title for MasterDetail</comment>
+  </data>
+  <data name="MasterDetail_NoSelection.Text" xml:space="preserve">
+    <value>Select an item from the list.</value>
+    <comment>No selection text for MasterDetail</comment>
+  </data>
+  <data name="Shell_MasterDetail" xml:space="preserve">
+    <value>MasterDetail</value>
+    <comment>Navigation view item name for MasterDetail</comment>
+  </data>
+  <data name="Shell_MediaPlayer" xml:space="preserve">
+    <value>MediaPlayer</value>
+    <comment>Navigation view item name for MediaPlayer</comment>
   </data>
   <data name="Tabbed_Pivot.Text" xml:space="preserve">  
     <value>Tabbed</value>
@@ -356,6 +356,26 @@ Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Ma
   <data name="FirstRun_Title.Text" xml:space="preserve">
     <value>Welcome</value>
     <comment>First use prompt message title</comment>
+  </data>
+  <data name="ExceptionViewLifeTimeControlViewDisposal" xml:space="preserve">
+    <value>This view is being disposed.</value>
+    <comment>View disposed</comment>
+  </data>
+  <data name="ExceptionShareSourceDataTitleIsNullOrEmpty" xml:space="preserve">
+    <value>The parameter title can not be null or empty.</value>
+    <comment>The parameter title can not be null or empty</comment>
+  </data>
+  <data name="ExceptionShareSourceDataHtmlIsNullOrEmpty" xml:space="preserve">
+    <value>The Parameter html is null or empty.</value>
+    <comment>The Parameter html is null or empty.</comment>
+  </data>
+  <data name="ExceptionShareSourceDataStorageItemsIsNullOrEmpty" xml:space="preserve">
+    <value>The Parameter StorageItems is null or does not contains any element.</value>
+    <comment>The Parameter StorageItems is null or does not contains any element.</comment>
+  </data>
+  <data name="ExceptionShareSourceDataDeferredDataFormatIdIsNullOrEmpty" xml:space="preserve">
+    <value>The Parameter DeferredDataFormatId is null or does not contains any element.</value>
+    <comment>The Parameter DeferredDataFormatId is null or does not contains any element.</comment>
   </data>
   <data name="ShareTarget_CompleteButton.Content" xml:space="preserve">
     <value>Complete</value>

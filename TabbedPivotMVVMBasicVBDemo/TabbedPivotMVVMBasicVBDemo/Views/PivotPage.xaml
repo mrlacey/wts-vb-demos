@@ -4,70 +4,71 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Style="{StaticResource PageStyle}"
     xmlns:model="using:TabbedPivotMVVMBasicVBDemo.Models"
     xmlns:views="using:TabbedPivotMVVMBasicVBDemo.Views"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
         <Pivot x:Uid="PivotPage">
-            <PivotItem x:Uid="PivotItem_Main">
+            <PivotItem x:Uid="PivotItem_Blank">
                 <Frame>
-                    <views:MainPage/>
+                    <views:BlankPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Blank3">
+            <PivotItem x:Uid="PivotItem_Settings">
                 <Frame>
-                    <views:Blank3Page/>
+                    <views:SettingsPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Camera3">
+            <PivotItem x:Uid="PivotItem_Blank1">
                 <Frame>
-                    <views:Camera3Page/>
+                    <views:Blank1Page/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Chart3">
+            <PivotItem x:Uid="PivotItem_Camera">
                 <Frame>
-                    <views:Chart3Page/>
+                    <views:CameraPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Grid3">
+            <PivotItem x:Uid="PivotItem_Chart">
                 <Frame>
-                    <views:Grid3Page/>
+                    <views:ChartPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_ImageGallery3">
+            <PivotItem x:Uid="PivotItem_Grid">
                 <Frame>
-                    <views:ImageGallery3Page/>
+                    <views:GridPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Map3">
+            <PivotItem x:Uid="PivotItem_ImageGallery">
                 <Frame>
-                    <views:Map3Page/>
+                    <views:ImageGalleryPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_MasterDetail3">
+            <PivotItem x:Uid="PivotItem_Map">
                 <Frame>
-                    <views:MasterDetail3Page/>
+                    <views:MapPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_MediaPlayer3">
+            <PivotItem x:Uid="PivotItem_MasterDetail">
                 <Frame>
-                    <views:MediaPlayer3Page/>
+                    <views:MasterDetailPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Settings3">
+            <PivotItem x:Uid="PivotItem_MediaPlayer">
                 <Frame>
-                    <views:Settings3Page/>
+                    <views:MediaPlayerPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Tabbed3">
+            <PivotItem x:Uid="PivotItem_Tabbed">
                 <Frame>
-                    <views:Tabbed3Page/>
+                    <views:TabbedPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_WebView3">
+            <PivotItem x:Uid="PivotItem_WebView">
                 <Frame>
-                    <views:WebView3Page/>
+                    <views:WebViewPage/>
                 </Frame>
             </PivotItem>
         </Pivot>

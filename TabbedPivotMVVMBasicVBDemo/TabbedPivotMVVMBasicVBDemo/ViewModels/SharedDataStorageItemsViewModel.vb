@@ -16,7 +16,7 @@ Namespace ViewModels
         Public Overrides Async Function LoadDataAsync(shareOperation As ShareOperation) As Task
             Await MyBase.LoadDataAsync(shareOperation)
 
-            PageTitle = "ShareTarget3_ImagesTitle".GetLocalized()
+            PageTitle = "ShareTarget_ImagesTitle".GetLocalized()
             DataFormat = StandardDataFormats.StorageItems
             Dim files = Await shareOperation.GetStorageItemsAsync()
             For Each file As IStorageFile In files

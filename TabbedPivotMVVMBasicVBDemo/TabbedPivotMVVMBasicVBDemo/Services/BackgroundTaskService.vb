@@ -53,7 +53,7 @@ Namespace Services
         Private Shared Function CreateInstances() As IEnumerable(Of BackgroundTask)
             Dim backgroundTasks As List(Of BackgroundTask) = New List(Of BackgroundTask)()
 
-            backgroundTasks.Add(New BackgroundTask4())
+            backgroundTasks.Add(New BackgroundTask1())
             Return backgroundTasks
         End Function
     End Class

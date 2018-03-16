@@ -2,9 +2,11 @@
 Imports SplitViewMVVMBasicVBDemo.Services
 
 Namespace ViewModels
+    ' TODO WTS: Add other settings as necessary. For help see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/pages/settings.md
     Public Class SettingsViewModel
         Inherits Observable
-        Public ReadOnly Property FeedbackLinkVisibility() As Visibility
+
+        Public ReadOnly Property FeedbackLinkVisibility As Visibility
             Get
                 Return If(Microsoft.Services.Store.Engagement.StoreServicesFeedbackLauncher.IsSupported(), Visibility.Visible, Visibility.Collapsed)
             End Get
@@ -12,7 +14,7 @@ Namespace ViewModels
 
         Private _launchFeedbackHubCommand As ICommand
 
-        Public ReadOnly Property LaunchFeedbackHubCommand() As ICommand
+        Public ReadOnly Property LaunchFeedbackHubCommand As ICommand
             Get
                 If _launchFeedbackHubCommand Is Nothing Then
                     _launchFeedbackHubCommand = New RelayCommand(Async Sub() 
@@ -27,7 +29,6 @@ Namespace ViewModels
         End Property
 
 
-        ' TODO WTS: Add other settings as necessary. For help see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/pages/settings.md
         Private _elementTheme As ElementTheme = ThemeSelectorService.Theme
 
         Public Property ElementTheme As ElementTheme
@@ -54,7 +55,7 @@ Namespace ViewModels
 
         Private _switchThemeCommand As ICommand
 
-        Public ReadOnly Property SwitchThemeCommand() As ICommand
+        Public ReadOnly Property SwitchThemeCommand As ICommand
             Get
                 If _switchThemeCommand Is Nothing Then
                     _switchThemeCommand = New RelayCommand(Of ElementTheme)(Async Sub(param) 

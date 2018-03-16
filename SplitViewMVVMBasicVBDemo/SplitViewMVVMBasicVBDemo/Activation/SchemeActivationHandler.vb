@@ -1,5 +1,4 @@
 ﻿Imports SplitViewMVVMBasicVBDemo.Services
-Imports SplitViewMVVMBasicVBDemo.Views
 
 Namespace Activation
     ' TODO WTS: Open package.appxmanifest and change the declaration for the scheme (from the default of 'wtsapp') to what you want for your app.
@@ -7,6 +6,7 @@ Namespace Activation
     ' TODO WTS: Change the image in Assets/Logo.png to one for display if the OS asks the user which app to launch.
     Friend Class SchemeActivationHandler
         Inherits ActivationHandler(Of ProtocolActivatedEventArgs)
+
         ' By default, this handler expects URIs of the format 'wtsapp:sample?secret={value}'
         Protected Overrides Async Function HandleInternalAsync(args As ProtocolActivatedEventArgs) As Task
             If args.Uri.AbsolutePath.ToLowerInvariant.Equals("sample") Then
@@ -28,11 +28,12 @@ Namespace Activation
                 NavigationService.Navigate(GetType(Views.UriSchemeExamplePage), secret)
             ElseIf args.PreviousExecutionState <> ApplicationExecutionState.Running Then
                 ' If the app isn't running and not navigating to a specific page based on the URI, navigate to the home page
-                NavigationService.Navigate(GetType(Views.MainPage))
+                NavigationService.Navigate(GetType(Views.BlankPage))
             End If
 
             Await Task.CompletedTask
         End Function
+
         Protected Overrides Function CanHandleInternal(args As ProtocolActivatedEventArgs) As Boolean
             ' If your app has multiple handlers of ProtocolActivationEventArgs
             ' use this method to determine which to use. (possibly checking args.Uri.Scheme)

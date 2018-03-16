@@ -4,70 +4,71 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Style="{StaticResource PageStyle}"
     xmlns:model="using:TabbedPivotCodeBehindVBDemo.Models"
     xmlns:views="using:TabbedPivotCodeBehindVBDemo.Views"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
         <Pivot x:Uid="PivotPage">
-            <PivotItem x:Uid="PivotItem_Main">
+            <PivotItem x:Uid="PivotItem_Blank">
                 <Frame>
-                    <views:MainPage/>
+                    <views:BlankPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Blank5">
+            <PivotItem x:Uid="PivotItem_Settings">
                 <Frame>
-                    <views:Blank5Page/>
+                    <views:SettingsPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Camera5">
+            <PivotItem x:Uid="PivotItem_Blank1">
                 <Frame>
-                    <views:Camera5Page/>
+                    <views:Blank1Page/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Chart5">
+            <PivotItem x:Uid="PivotItem_Camera">
                 <Frame>
-                    <views:Chart5Page/>
+                    <views:CameraPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Grid5">
+            <PivotItem x:Uid="PivotItem_Chart">
                 <Frame>
-                    <views:Grid5Page/>
+                    <views:ChartPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_ImageGallery5">
+            <PivotItem x:Uid="PivotItem_Grid">
                 <Frame>
-                    <views:ImageGallery5Page/>
+                    <views:GridPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Map5">
+            <PivotItem x:Uid="PivotItem_ImageGallery">
                 <Frame>
-                    <views:Map5Page/>
+                    <views:ImageGalleryPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_MasterDetail5">
+            <PivotItem x:Uid="PivotItem_Map">
                 <Frame>
-                    <views:MasterDetail5Page/>
+                    <views:MapPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_MediaPlayer5">
+            <PivotItem x:Uid="PivotItem_MasterDetail">
                 <Frame>
-                    <views:MediaPlayer5Page/>
+                    <views:MasterDetailPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Settings5">
+            <PivotItem x:Uid="PivotItem_MediaPlayer">
                 <Frame>
-                    <views:Settings5Page/>
+                    <views:MediaPlayerPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_Tabbed5">
+            <PivotItem x:Uid="PivotItem_Tabbed">
                 <Frame>
-                    <views:Tabbed5Page/>
+                    <views:TabbedPage/>
                 </Frame>
             </PivotItem>
-            <PivotItem x:Uid="PivotItem_WebView5">
+            <PivotItem x:Uid="PivotItem_WebView">
                 <Frame>
-                    <views:WebView5Page/>
+                    <views:WebViewPage/>
                 </Frame>
             </PivotItem>
         </Pivot>

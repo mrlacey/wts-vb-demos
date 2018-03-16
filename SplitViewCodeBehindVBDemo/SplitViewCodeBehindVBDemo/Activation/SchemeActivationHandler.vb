@@ -6,6 +6,7 @@ Namespace Activation
     ' TODO WTS: Change the image in Assets/Logo.png to one for display if the OS asks the user which app to launch.
     Friend Class SchemeActivationHandler
         Inherits ActivationHandler(Of ProtocolActivatedEventArgs)
+
         ' By default, this handler expects URIs of the format 'wtsapp:sample?secret={value}'
         Protected Overrides Async Function HandleInternalAsync(args As ProtocolActivatedEventArgs) As Task
             If args.Uri.AbsolutePath.ToLowerInvariant.Equals("sample") Then
@@ -24,10 +25,10 @@ Namespace Activation
                 End Try
 
                 ' It's also possible to have logic here to navigate to different pages. e.g. if you have logic based on the URI used to launch
-                NavigationService.Navigate(GetType(Views.UriScheme2ExamplePage), secret)
+                NavigationService.Navigate(GetType(Views.UriSchemeExamplePage), secret)
             ElseIf args.PreviousExecutionState <> ApplicationExecutionState.Running Then
                 ' If the app isn't running and not navigating to a specific page based on the URI, navigate to the home page
-                NavigationService.Navigate(GetType(Views.MainPage))
+                NavigationService.Navigate(GetType(Views.BlankPage))
             End If
 
             Await Task.CompletedTask

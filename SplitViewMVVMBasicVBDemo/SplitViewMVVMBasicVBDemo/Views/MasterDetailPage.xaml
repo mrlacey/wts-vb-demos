@@ -8,6 +8,8 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:model="using:SplitViewMVVMBasicVBDemo.Models"
     xmlns:views="using:SplitViewMVVMBasicVBDemo.Views"
+    xmlns:fcu ="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,5)"
+    xmlns:cu ="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractNotPresent(Windows.Foundation.UniversalApiContract,5)"
     mc:Ignorable="d">
     <Page.Transitions>
         <TransitionCollection>
@@ -21,9 +23,9 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <FontIcon Grid.Column="0" Tag="{x:Bind HashIdentIcon}" FontSize="40" Glyph="{x:Bind SymbolAsChar}" VerticalAlignment="Center" />
+                <FontIcon Grid.Column="0" FontSize="40" Glyph="{x:Bind SymbolAsChar}" VerticalAlignment="Center" />
                 <StackPanel Grid.Column="1" Margin="12,0,0,0" VerticalAlignment="Center">
-                    <TextBlock Text="{x:Bind Company}" Tag="{x:Bind HashIdentTitle}" Style="{ThemeResource ListTitleStyle}"/>
+                    <TextBlock Text="{x:Bind Company}" Style="{ThemeResource ListTitleStyle}"/>
                     <TextBlock Text="{x:Bind Status}" Style="{StaticResource ListSubTitleStyle}"/>
                 </StackPanel>
             </Grid>
@@ -55,7 +57,7 @@
             Grid.Row="1"
             x:Name="MasterDetailsViewControl"
             ItemsSource="{x:Bind ViewModel.SampleItems}"
-            SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"
+            SelectedItem="{x:Bind ViewModel.Selected, Mode=TwoWay}"
             ItemTemplate="{StaticResource ItemTemplate}"
             DetailsTemplate="{StaticResource DetailsTemplate}"
             NoSelectionContentTemplate="{StaticResource NoSelectionContentTemplate}"
@@ -73,7 +75,7 @@
                         <AdaptiveTrigger MinWindowWidth="0"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
-                        <Setter Target="TitlePage.Margin" Value="60,0,12,7"/>
+                        <Setter Target="TitlePage.Margin" cu:Value="60,0,12,7" fcu:Value="12,0,12,7"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>

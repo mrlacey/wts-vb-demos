@@ -3,16 +3,17 @@
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:genTemplate="http://schemas.microsoft.com/appx/developer/windowsTemplateStudio"
   IgnorableNamespaces="uap mp genTemplate">
 
   <Identity
-    Name="7526A667-6D98-4220-A58F-143F3A785B9D"
+    Name="AB72F0C5-8DAC-4C8F-8E18-810195F45447"
     Publisher="CN=matt"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="7526A667-6D98-4220-A58F-143F3A785B9D" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="AB72F0C5-8DAC-4C8F-8E18-810195F45447" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>BlankCodeBehindVBDemo</DisplayName>
@@ -43,6 +44,11 @@
       </uap:VisualElements>
 
       <Extensions>
+        <uap3:Extension Category="windows.appUriHandler">
+          <uap3:AppUriHandler>
+            <uap3:Host Name="myapp.website.com"/>
+          </uap3:AppUriHandler>
+        </uap3:Extension>
         <uap:Extension Category="windows.shareTarget">
           <uap:ShareTarget>
             <uap:SupportedFileTypes>

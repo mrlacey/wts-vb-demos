@@ -6,15 +6,14 @@ Imports TabbedPivotCodeBehindVBDemo.Helpers
 Imports Windows.Storage
 
 Namespace Services
+
+    ' More details regarding the application lifecycle and how to handle suspend and resume at https://docs.microsoft.com/windows/uwp/launch-resume/app-lifecycle
     Friend Class SuspendAndResumeService
         Inherits ActivationHandler(Of LaunchActivatedEventArgs)
 
-        ' TODO WTS: For more information regarding the application lifecycle and how to handle suspend and resume, please see:
-        ' Documentation: https://docs.microsoft.com/windows/uwp/launch-resume/app-lifecycle
+        Private Const StateFilename As String = "SuspendAndResumeState"
 
-        Private Const StateFilename As String = "suspensionState"
-
-        ' TODO WTS: This event is fired just before the app enters in background. Subscribe to this event if you want to save your current state.
+        ' TODO WTS: Subscribe to this event if you want to save the current state. It is fired just before the app enters the background.
         Public Event OnBackgroundEntering As EventHandler(Of OnBackgroundEnteringEventArgs)
 
         Public Async Function SaveStateAsync() As Task

@@ -3,7 +3,8 @@
 Namespace Views
     Public NotInheritable Partial Class MapPage
         Inherits Page
-            property ViewModel as MapViewModel = New MapViewModel
+
+        property ViewModel as MapViewModel = New MapViewModel
 
         Public Sub New()
             InitializeComponent()

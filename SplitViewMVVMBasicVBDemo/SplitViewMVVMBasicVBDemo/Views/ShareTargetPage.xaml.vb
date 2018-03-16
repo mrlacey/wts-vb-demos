@@ -3,14 +3,13 @@
 Imports Windows.ApplicationModel.DataTransfer.ShareTarget
 
 Namespace Views
-    ' TODO WTS: This page exists purely as an example of how to launch a specific page
-    ' in response to a protocol launch and pass it a value. It is expected that you will
-    ' delete this page once you have changed the handling of a protocol launch to meet your
-    ' needs and redirected to another of your pages.
+    ' TODO WTS: Remove this example page when/if it's not needed.
+    ' This page is an example of how to handle data that is shared with your app.
+    ' You can either change this page to meet your needs, or use another and delete this page.
     Public NotInheritable Partial Class ShareTargetPage
         Inherits Page
 
-        Public ReadOnly Property ViewModel() As ShareTargetViewModel = new ShareTargetViewModel
+        Public ReadOnly Property ViewModel As ShareTargetViewModel = new ShareTargetViewModel
 
         Public Sub New()
             InitializeComponent()

@@ -2,8 +2,10 @@
 
 NotInheritable Partial Class App
     Inherits Application
+
     Private _activationService As Lazy(Of ActivationService)
-    Private ReadOnly Property ActivationService() As ActivationService
+
+    Private ReadOnly Property ActivationService As ActivationService
         Get
             Return _activationService.Value
         End Get
@@ -27,8 +29,13 @@ NotInheritable Partial Class App
     Protected Overrides Async Sub OnActivated(args As IActivatedEventArgs)
         Await ActivationService.ActivateAsync(args)
     End Sub
+
     Private Function CreateActivationService() As ActivationService
-        Return New ActivationService(Me, GetType(Views.MainPage), New Views.ShellPage())
+        Return New ActivationService(Me, GetType(Views.BlankPage), New Lazy(Of UIElement)(AddressOf CreateShell))
+    End Function
+
+    Private Function CreateShell() As UIElement
+        Return New Views.ShellPage()
     End Function
 
     Protected Overrides Async Sub OnBackgroundActivated(args As BackgroundActivatedEventArgs)

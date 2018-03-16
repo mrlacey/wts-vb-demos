@@ -1,4 +1,6 @@
-﻿Imports SplitViewCodeBehindVBDemo.Helpers
+﻿Imports Microsoft.Toolkit.Uwp.UI.Controls
+
+Imports SplitViewCodeBehindVBDemo.Helpers
 Imports SplitViewCodeBehindVBDemo.Services
 
 Namespace Views
@@ -13,6 +15,7 @@ Namespace Views
         Private Const PanoramicStateMinWindowWidth As Double = 1024
 
         Private _isPaneOpen As Boolean
+
         Public Property IsPaneOpen As Boolean
             Get
                 Return _isPaneOpen
@@ -22,7 +25,20 @@ Namespace Views
             End Set
         End Property
 
+        Private _selected As Object
+
+        Public Property Selected As Object
+            Get
+                Return _selected
+            End Get
+
+            Set(value As Object)
+                [Set](_selected, value)
+            End Set
+        End Property
+
         Private _displayMode As SplitViewDisplayMode = SplitViewDisplayMode.CompactInline
+
         Public Property DisplayMode As SplitViewDisplayMode
             Get
                 Return _displayMode
@@ -35,14 +51,16 @@ Namespace Views
         Private _lastSelectedItem As Object
 
         Private _primaryItems As New ObservableCollection(Of ShellNavigationItem)()
-        Public ReadOnly Property PrimaryItems() As ObservableCollection(Of ShellNavigationItem)
+
+        Public ReadOnly Property PrimaryItems As ObservableCollection(Of ShellNavigationItem)
             Get
                 Return _primaryItems
             End Get
         End Property
 
         Private _secondaryItems As New ObservableCollection(Of ShellNavigationItem)()
-        Public ReadOnly Property SecondaryItems() As ObservableCollection(Of ShellNavigationItem)
+
+        Public ReadOnly Property SecondaryItems As ObservableCollection(Of ShellNavigationItem)
             Get
                 Return _secondaryItems
             End Get
@@ -78,20 +96,20 @@ Namespace Views
 
             ' TODO WTS: Change the symbols for each item as appropriate for your app
             ' More on Segoe UI Symbol icons: https://docs.microsoft.com/windows/uwp/style/segoe-ui-symbol-font
-            ' Or to use an IconElement instead of a Symbol see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/projectTypes/navigationpane.md
+            ' Or to use an IconElement instead of a Symbol see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/projectTypes/navigationpane.vb.md
             ' Edit String/en-US/Resources.resw: Add a menu item title for each page
-            _primaryItems.Add(ShellNavigationItem.FromType(Of MainPage)("Shell_Main".GetLocalized(), Symbol.Document))
-            _primaryItems.Add(ShellNavigationItem.FromType(Of Blank2Page)("Shell_Blank2".GetLocalized(), Symbol.Document))
-            _primaryItems.Add(ShellNavigationItem.FromType(Of Camera2Page)("Shell_Camera2".GetLocalized(), Symbol.Document))
-            _primaryItems.Add(ShellNavigationItem.FromType(Of Chart2Page)("Shell_Chart2".GetLocalized(), Symbol.Document))
-            _primaryItems.Add(ShellNavigationItem.FromType(Of Grid2Page)("Shell_Grid2".GetLocalized(), Symbol.Document))
-            _primaryItems.Add(ShellNavigationItem.FromType(Of ImageGallery2Page)("Shell_ImageGallery2".GetLocalized(), Symbol.Document))
-            _primaryItems.Add(ShellNavigationItem.FromType(Of Map2Page)("Shell_Map2".GetLocalized(), Symbol.Document))
-            _primaryItems.Add(ShellNavigationItem.FromType(Of MasterDetail2Page)("Shell_MasterDetail2".GetLocalized(), Symbol.Document))
-            _primaryItems.Add(ShellNavigationItem.FromType(Of MediaPlayer2Page)("Shell_MediaPlayer2".GetLocalized(), Symbol.Document))
-            _secondaryItems.Add(ShellNavigationItem.FromType(Of Settings2Page)("Shell_Settings2".GetLocalized(), Symbol.Setting))
-            _primaryItems.Add(ShellNavigationItem.FromType(Of Tabbed2Page)("Shell_Tabbed2".GetLocalized(), Symbol.Document))
-            _primaryItems.Add(ShellNavigationItem.FromType(Of WebView2Page)("Shell_WebView2".GetLocalized(), Symbol.Document))
+            _primaryItems.Add(ShellNavigationItem.FromType(Of BlankPage)("Shell_Blank".GetLocalized(), Symbol.Document))
+            _secondaryItems.Add(ShellNavigationItem.FromType(Of SettingsPage)("Shell_Settings".GetLocalized(), Symbol.Setting))
+            _primaryItems.Add(ShellNavigationItem.FromType(Of Blank1Page)("Shell_Blank1".GetLocalized(), Symbol.Document))
+            _primaryItems.Add(ShellNavigationItem.FromType(Of CameraPage)("Shell_Camera".GetLocalized(), Symbol.Document))
+            _primaryItems.Add(ShellNavigationItem.FromType(Of ChartPage)("Shell_Chart".GetLocalized(), Symbol.Document))
+            _primaryItems.Add(ShellNavigationItem.FromType(Of GridPage)("Shell_Grid".GetLocalized(), Symbol.Document))
+            _primaryItems.Add(ShellNavigationItem.FromType(Of ImageGalleryPage)("Shell_ImageGallery".GetLocalized(), Symbol.Document))
+            _primaryItems.Add(ShellNavigationItem.FromType(Of MapPage)("Shell_Map".GetLocalized(), Symbol.Document))
+            _primaryItems.Add(ShellNavigationItem.FromType(Of MasterDetailPage)("Shell_MasterDetail".GetLocalized(), Symbol.Document))
+            _primaryItems.Add(ShellNavigationItem.FromType(Of MediaPlayerPage)("Shell_MediaPlayer".GetLocalized(), Symbol.Document))
+            _primaryItems.Add(ShellNavigationItem.FromType(Of TabbedPage)("Shell_Tabbed".GetLocalized(), Symbol.Document))
+            _primaryItems.Add(ShellNavigationItem.FromType(Of WebViewPage)("Shell_WebView".GetLocalized(), Symbol.Document))
         End Sub
 
         Private Sub Frame_Navigated(sender As Object, e As NavigationEventArgs)
@@ -117,6 +135,7 @@ Namespace Views
             End If
             If newValue IsNot Nothing Then
                 TryCast(newValue, ShellNavigationItem).IsSelected = True
+                Selected = newValue
             End If
         End Sub
         
@@ -127,11 +146,11 @@ Namespace Views
             End If
         End Sub
 
-        Private Sub ItemClicked(sender As Object, e As ItemClickEventArgs)
+        Private Sub ItemInvoked(sender As Object, e As HamburgerMenuItemInvokedEventArgs)
             If DisplayMode = SplitViewDisplayMode.CompactOverlay OrElse DisplayMode = SplitViewDisplayMode.Overlay Then
                 IsPaneOpen = False
             End If
-            Navigate(e.ClickedItem)
+            Navigate(e.InvokedItem)
         End Sub
 
         Private Sub OpenPane_Click(sender As Object, e As RoutedEventArgs)

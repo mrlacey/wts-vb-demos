@@ -3,16 +3,17 @@
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:genTemplate="http://schemas.microsoft.com/appx/developer/windowsTemplateStudio"
   IgnorableNamespaces="uap mp genTemplate">
 
   <Identity
-    Name="588AA69D-9F00-4EC3-AD2B-DD400F8788F4"
+    Name="BD8BA50F-CD39-4767-B3B5-C5B3E8F070B0"
     Publisher="CN=matt"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="588AA69D-9F00-4EC3-AD2B-DD400F8788F4" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="BD8BA50F-CD39-4767-B3B5-C5B3E8F070B0" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>TabbedPivotMVVMLightVBDemo</DisplayName>
@@ -43,6 +44,11 @@
       </uap:VisualElements>
 
       <Extensions>
+        <uap3:Extension Category="windows.appUriHandler">
+          <uap3:AppUriHandler>
+            <uap3:Host Name="myapp.website.com"/>
+          </uap3:AppUriHandler>
+        </uap3:Extension>
         <uap:Extension Category="windows.shareTarget">
           <uap:ShareTarget>
             <uap:SupportedFileTypes>

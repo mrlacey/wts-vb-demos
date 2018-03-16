@@ -3,7 +3,8 @@
 Namespace Views
     Public NotInheritable Partial Class GridPage
         Inherits Page
-            property ViewModel as GridViewModel = New GridViewModel
+
+        property ViewModel as GridViewModel = New GridViewModel
 
         ' TODO WTS: Change the grid as appropriate to your app.
         ' For help see http://docs.telerik.com/windows-universal/controls/raddatagrid/gettingstarted

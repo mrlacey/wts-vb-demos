@@ -1,5 +1,4 @@
 ﻿Imports BlankMVVMLightVBDemo.Services
-Imports BlankMVVMLightVBDemo.ViewModels
 
 Namespace Activation
     ' TODO WTS: Open package.appxmanifest and change the declaration for the scheme (from the default of 'wtsapp') to what you want for your app.
@@ -7,9 +6,10 @@ Namespace Activation
     ' TODO WTS: Change the image in Assets/Logo.png to one for display if the OS asks the user which app to launch.
     Friend Class SchemeActivationHandler
         Inherits ActivationHandler(Of ProtocolActivatedEventArgs)
+
         Private ReadOnly Property NavigationService As NavigationServiceEx
             Get
-                Return Microsoft.Practices.ServiceLocation.ServiceLocator.Current.GetInstance(Of NavigationServiceEx)()
+                Return CommonServiceLocator.ServiceLocator.Current.GetInstance(Of NavigationServiceEx)()
             End Get
         End Property
 
@@ -31,14 +31,15 @@ Namespace Activation
                 End Try
 
                 ' It's also possible to have logic here to navigate to different pages. e.g. if you have logic based on the URI used to launch
-                NavigationService.Navigate(GetType(ViewModels.UriScheme1ExampleViewModel).FullName, secret)
+                NavigationService.Navigate(GetType(ViewModels.UriSchemeExampleViewModel).FullName, secret)
             ElseIf args.PreviousExecutionState <> ApplicationExecutionState.Running Then
                 ' If the app isn't running and not navigating to a specific page based on the URI, navigate to the home page
-                NavigationService.Navigate(GetType(ViewModels.MainViewModel).FullName)
+                NavigationService.Navigate(GetType(ViewModels.BlankViewModel).FullName)
             End If
 
             Await Task.CompletedTask
         End Function
+
         Protected Overrides Function CanHandleInternal(args As ProtocolActivatedEventArgs) As Boolean
             ' If your app has multiple handlers of ProtocolActivationEventArgs
             ' use this method to determine which to use. (possibly checking args.Uri.Scheme)

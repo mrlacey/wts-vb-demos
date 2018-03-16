@@ -8,6 +8,7 @@ Imports Windows.UI.Xaml.Controls.Maps
 Namespace ViewModels
     Public Class MapViewModel
         Inherits Observable
+
         ' TODO WTS: Set your preferred default zoom level
         Private Const DefaultZoomLevel As Double = 17
 
@@ -65,7 +66,7 @@ Namespace ViewModels
             End If
 
             If map IsNot Nothing Then
-                ' TODO WTS: Set your map service token. If you don't have one, request at https://www.bingmapsportal.com/
+                ' TODO WTS: Set your map service token. If you don't have one, request from https://www.bingmapsportal.com/
                 map.MapServiceToken = String.Empty
 
                 AddMapIcon(map, Center, "Map_YourLocation".GetLocalized())

@@ -3,6 +3,7 @@
 Namespace ViewModels
     Public Class WebViewViewModel
         Inherits Observable
+
         ' TODO WTS: Set the URI of the page to show by default
         Private Const DefaultUrl As String = "https://developer.microsoft.com/en-us/windows/apps"
 

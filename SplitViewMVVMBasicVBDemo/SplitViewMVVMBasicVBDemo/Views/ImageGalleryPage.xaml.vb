@@ -3,7 +3,8 @@
 Namespace Views
     Public NotInheritable Partial Class ImageGalleryPage
         Inherits Page
-            property ViewModel as ImageGalleryViewModel = New ImageGalleryViewModel
+
+        property ViewModel as ImageGalleryViewModel = New ImageGalleryViewModel
 
         Public Sub New()
             InitializeComponent()

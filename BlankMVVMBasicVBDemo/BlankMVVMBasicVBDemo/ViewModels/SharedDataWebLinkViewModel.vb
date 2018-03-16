@@ -6,9 +6,10 @@ Imports Windows.ApplicationModel.DataTransfer.ShareTarget
 Namespace ViewModels
     Public Class SharedDataWebLinkViewModel
         Inherits SharedDataViewModelBase
+
         Private _uri As Uri
 
-        Public Property Uri() As Uri
+        Public Property Uri As Uri
             Get
                 Return _uri
             End Get
@@ -23,7 +24,7 @@ Namespace ViewModels
         Public Overrides Async Function LoadDataAsync(shareOperation As ShareOperation) As Task
             Await MyBase.LoadDataAsync(shareOperation)
 
-            PageTitle = "ShareTarget6_WebLinkTitle".GetLocalized()
+            PageTitle = "ShareTarget_WebLinkTitle".GetLocalized()
             DataFormat = StandardDataFormats.WebLink
             Uri = Await shareOperation.GetWebLinkAsync()
         End Function

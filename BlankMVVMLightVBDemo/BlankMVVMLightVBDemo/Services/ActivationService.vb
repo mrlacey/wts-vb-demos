@@ -4,10 +4,10 @@ Imports BlankMVVMLightVBDemo.Helpers
 Imports Windows.UI.Core
 
 Namespace Services
-    ' For more information on application activation see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/activation.md
+    ' For more information on application activation see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/activation.vb.md
     Friend Class ActivationService
         Private ReadOnly _app As App
-        Private ReadOnly _shell As UIElement
+        Private ReadOnly _shell As Lazy(Of UIElement)
         Private ReadOnly _defaultNavItem As Type
     
         Private ReadOnly Property Locator As ViewModels.ViewModelLocator
@@ -22,9 +22,9 @@ Namespace Services
             End Get
         End Property
 
-        Public Sub New(app As App, defaultNavItem As Type, Optional shell As UIElement = Nothing)
+        Public Sub New(app As App, defaultNavItem As Type, Optional shell As Lazy(Of UIElement) = Nothing)
             _app = app
-            _shell = If(shell, New Frame())
+            _shell = shell
             _defaultNavItem = defaultNavItem
         End Sub
 
@@ -37,7 +37,7 @@ Namespace Services
                 ' just ensure that the window is active
                 If Window.Current.Content Is Nothing Then
                     ' Create a Frame to act as the navigation context and navigate to the first page
-                    Window.Current.Content = _shell
+                    Window.Current.Content = If(_shell?.Value, New Frame())
                     AddHandler NavigationService.NavigationFailed, Function(sender, e)
                         Throw e.Exception
                                                                 End Function
@@ -69,36 +69,36 @@ Namespace Services
         End Function
 
         Private Async Function InitializeAsync() As Task
-            Await Singleton(Of StoreNotifications1Service).Instance.InitializeAsync()
-            Await Singleton(Of LiveTile1Service).Instance.EnableQueueAsync()
+            Await Singleton(Of LiveTileService).Instance.EnableQueueAsync()
             Singleton(Of BackgroundTaskService).Instance.RegisterBackgroundTasks()
             Await ThemeSelectorService.InitializeAsync()
             Await Task.CompletedTask
         End Function
 
         Private Async Function StartupAsync() As Task
-            Await WhatsNewDisplayService.ShowIfAppropriateAsync()
-            Singleton(Of LiveTile1Service).Instance.SampleUpdate()
-
-            ' TODO WTS: To use the HubNotificationService specific data related with your Azure Notification Hubs is required.
-            '  1. Go to the HubNotifications1Service class, in the InitializeAsync() method, provide the Hub Name and DefaultListenSharedAccessSignature.
-            '  2. Uncomment the following line (an exception will be thrown if it is executed and the above information is not provided).
-            ' Await Singleton(Of HubNotifications1Service).Instance.InitializeAsync()
-            Await FirstRunDisplayService.ShowIfAppropriateAsync()
             ThemeSelectorService.SetRequestedTheme()
+            Await FirstRunDisplayService.ShowIfAppropriateAsync()
+
+            ' TODO WTS: Configure and enable Azure Notification Hub integration.
+            '  1. Go to the HubNotificationsService class, in the InitializeAsync() method, provide the Hub Name and DefaultListenSharedAccessSignature.
+            '  2. Uncomment the following line (an exception will be thrown if it is executed and the above information is not provided).
+            ' Await Singleton(Of HubNotificationsService).Instance.InitializeAsync()
+            Singleton(Of LiveTileService).Instance.SampleUpdate()
+            Await Singleton(Of StoreNotificationsService).Instance.InitializeAsync()
+            Await WhatsNewDisplayService.ShowIfAppropriateAsync()
             Await Task.CompletedTask
         End Function
 
         Private Iterator Function GetActivationHandlers() As IEnumerable(Of ActivationHandler)
+            Yield Singleton(Of WebToAppLinkActivationHandler).Instance
             Yield Singleton(Of SchemeActivationHandler).Instance
-            yield Singleton(Of ToastNotifications1Service).Instance
+            yield Singleton(Of ToastNotificationsService).Instance
             Yield Singleton(Of SuspendAndResumeService).Instance
-            yield Singleton(Of StoreNotifications1Service).Instance
-            yield Singleton(Of ShareTarget1ActivationHandler).Instance
-            yield Singleton(Of LiveTile1Service).Instance
-            yield Singleton(Of HubNotifications1Service).Instance
+            yield Singleton(Of StoreNotificationsService).Instance
+            yield Singleton(Of ShareTargetActivationHandler).Instance
+            yield Singleton(Of LiveTileService).Instance
+            yield Singleton(Of HubNotificationsService).Instance
             yield Singleton(Of BackgroundTaskService).Instance
-
         End Function
 
         Private Function IsInteractive(args As Object) As Boolean

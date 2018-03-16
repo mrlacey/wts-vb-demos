@@ -3,7 +3,9 @@
 Namespace Views
     Public NotInheritable Partial Class MasterDetailPage
         Inherits Page
-            property ViewModel as MasterDetailViewModel = New MasterDetailViewModel
+
+        property ViewModel as MasterDetailViewModel = New MasterDetailViewModel
+
         Public Sub New()
             InitializeComponent()
             AddHandler Loaded, AddressOf MasterDetailPage_Loaded

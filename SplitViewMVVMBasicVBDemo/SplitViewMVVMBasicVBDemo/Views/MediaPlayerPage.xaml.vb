@@ -7,16 +7,6 @@ Imports Windows.UI.Core
 Namespace Views
     Public NotInheritable Partial Class MediaPlayerPage
         Inherits Page
-            property ViewModel as MediaPlayerViewModel = New MediaPlayerViewModel
-
-        ' For more on the MediaPlayer and adjusting controls and behavior see https://docs.microsoft.com/en-us/windows/uwp/controls-and-patterns/media-playback
-        ' The DisplayRequest is used to stop the screen dimming while watching for extended periods
-        Private _displayRequest As New DisplayRequest()
-        Private _isRequestActive As Boolean = False
-
-        Public Sub New()
-            InitializeComponent()
-        End Sub
 
         Protected Overrides Sub OnNavigatedTo(e As NavigationEventArgs)
             MyBase.OnNavigatedTo(e)
@@ -27,6 +17,18 @@ Namespace Views
             MyBase.OnNavigatedFrom(e)
             mpe.MediaPlayer.Pause()
             RemoveHandler mpe.MediaPlayer.PlaybackSession.PlaybackStateChanged, AddressOf PlaybackSession_PlaybackStateChanged
+        End Sub
+
+        property ViewModel as MediaPlayerViewModel = New MediaPlayerViewModel
+
+        ' For more on the MediaPlayer and adjusting controls and behavior see https://docs.microsoft.com/en-us/windows/uwp/controls-and-patterns/media-playback
+        ' The DisplayRequest is used to stop the screen dimming while watching for extended periods
+        Private _displayRequest As New DisplayRequest()
+
+        Private _isRequestActive As Boolean = False
+
+        Public Sub New()
+            InitializeComponent()
         End Sub
 
         Private Async Sub PlaybackSession_PlaybackStateChanged(sender As MediaPlaybackSession, args As Object)

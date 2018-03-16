@@ -1,7 +1,9 @@
-﻿Imports GalaSoft.MvvmLight
+﻿Imports CommonServiceLocator
+
+Imports GalaSoft.MvvmLight
 Imports GalaSoft.MvvmLight.Command
 
-Imports Microsoft.Practices.ServiceLocation
+Imports Microsoft.Toolkit.Uwp.UI.Controls
 
 Imports SplitViewMVVMLightVBDemo.Helpers
 Imports SplitViewMVVMLightVBDemo.Services
@@ -10,19 +12,21 @@ Imports SplitViewMVVMLightVBDemo.Views
 Namespace ViewModels
     Public Class ShellViewModel
         Inherits ViewModelBase
+
         Private Const PanoramicStateName As String = "PanoramicState"
         Private Const WideStateName As String = "WideState"
         Private Const NarrowStateName As String = "NarrowState"
         Private Const WideStateMinWindowWidth As Double = 640
         Private Const PanoramicStateMinWindowWidth As Double = 1024
 
-        Public ReadOnly Property NavigationService() As NavigationServiceEx
+        Public ReadOnly Property NavigationService As NavigationServiceEx
             Get
-                Return Microsoft.Practices.ServiceLocation.ServiceLocator.Current.GetInstance(Of NavigationServiceEx)()
+                Return CommonServiceLocator.ServiceLocator.Current.GetInstance(Of NavigationServiceEx)()
             End Get
         End Property
 
         Private _isPaneOpen As Boolean
+
         Public Property IsPaneOpen As Boolean
             Get
                 Return _isPaneOpen
@@ -32,7 +36,20 @@ Namespace ViewModels
             End Set
         End Property
 
+        Private _selected As Object
+
+        Public Property Selected As Object
+            Get
+                Return _selected
+            End Get
+
+            Set(value As Object)
+                [Set](_selected, value)
+            End Set
+        End Property
+
         Private _displayMode As SplitViewDisplayMode = SplitViewDisplayMode.CompactInline
+
         Public Property DisplayMode As SplitViewDisplayMode
             Get
                 Return _displayMode
@@ -45,6 +62,7 @@ Namespace ViewModels
         Private _lastSelectedItem As Object
 
         Private _primaryItems As New ObservableCollection(Of ShellNavigationItem)()
+
         Public ReadOnly Property PrimaryItems As ObservableCollection(Of ShellNavigationItem)
             Get
                 Return _primaryItems
@@ -52,6 +70,7 @@ Namespace ViewModels
         End Property
 
         Private _secondaryItems As New ObservableCollection(Of ShellNavigationItem)()
+
         Public ReadOnly Property SecondaryItems As ObservableCollection(Of ShellNavigationItem)
             Get
                 Return _secondaryItems
@@ -59,21 +78,25 @@ Namespace ViewModels
         End Property
 
         Private _openPaneCommand As ICommand
-        Public ReadOnly Property OpenPaneCommand As ICommand
-          Get
-              If _openPaneCommand Is Nothing Then
-                  _openPaneCommand = New RelayCommand(Function() InlineAssignHelper(IsPaneOpen, Not _isPaneOpen))
-              End If
 
-              Return _openPaneCommand
-          End Get
+        Public ReadOnly Property OpenPaneCommand As ICommand
+            Get
+                If _openPaneCommand Is Nothing Then
+                    _openPaneCommand = New RelayCommand(Sub()
+                        IsPaneOpen = Not _isPaneOpen
+                                                        End Sub)
+                End If
+
+                Return _openPaneCommand
+            End Get
         End Property
 
         Private _itemSelected As ICommand
+
         Public ReadOnly Property ItemSelectedCommand As ICommand
             Get
                 If _itemSelected Is Nothing Then
-                    _itemSelected = New RelayCommand(Of ItemClickEventArgs)(AddressOf ItemSelected)
+                    _itemSelected = New RelayCommand(Of HamburgerMenuItemInvokedEventArgs)(AddressOf ItemSelected)
                 End If
 
                 Return _itemSelected
@@ -81,6 +104,7 @@ Namespace ViewModels
         End Property
 
         Private _stateChangedCommand As ICommand
+
         Public ReadOnly Property StateChangedCommand As ICommand
             Get
                 If _stateChangedCommand Is Nothing Then
@@ -133,27 +157,27 @@ Namespace ViewModels
 
             ' TODO WTS: Change the symbols for each item as appropriate for your app
             ' More on Segoe UI Symbol icons: https://docs.microsoft.com/windows/uwp/style/segoe-ui-symbol-font
-            ' Or to use an IconElement instead of a Symbol see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/projectTypes/navigationpane.md
+            ' Or to use an IconElement instead of a Symbol see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/projectTypes/navigationpane.vb.md
             ' Edit String/en-US/Resources.resw: Add a menu item title for each page
-            _primaryItems.Add(New ShellNavigationItem("Shell_Main".GetLocalized(), Symbol.Document, GetType(MainViewModel).FullName))
-            _primaryItems.Add(New ShellNavigationItem("Shell_Blank7".GetLocalized(), Symbol.Document, GetType(Blank7ViewModel).FullName))
-            _primaryItems.Add(New ShellNavigationItem("Shell_Camera7".GetLocalized(), Symbol.Document, GetType(Camera7ViewModel).FullName))
-            _primaryItems.Add(New ShellNavigationItem("Shell_Chart7".GetLocalized(), Symbol.Document, GetType(Chart7ViewModel).FullName))
-            _primaryItems.Add(New ShellNavigationItem("Shell_Grid7".GetLocalized(), Symbol.Document, GetType(Grid7ViewModel).FullName))
-            _primaryItems.Add(New ShellNavigationItem("Shell_ImageGallery7".GetLocalized(), Symbol.Document, GetType(ImageGallery7ViewModel).FullName))
-            _primaryItems.Add(New ShellNavigationItem("Shell_Map7".GetLocalized(), Symbol.Document, GetType(Map7ViewModel).FullName))
-            _primaryItems.Add(New ShellNavigationItem("Shell_MasterDetail7".GetLocalized(), Symbol.Document, GetType(MasterDetail7ViewModel).FullName))
-            _primaryItems.Add(New ShellNavigationItem("Shell_MediaPlayer7".GetLocalized(), Symbol.Document, GetType(MediaPlayer7ViewModel).FullName))
-            _secondaryItems.Add(New ShellNavigationItem("Shell_Settings7".GetLocalized(), Symbol.Setting, GetType(Settings7ViewModel).FullName))
-            _primaryItems.Add(New ShellNavigationItem("Shell_Tabbed7".GetLocalized(), Symbol.Document, GetType(Tabbed7ViewModel).FullName))
-            _primaryItems.Add(New ShellNavigationItem("Shell_WebView7".GetLocalized(), Symbol.Document, GetType(WebView7ViewModel).FullName))
+            _primaryItems.Add(New ShellNavigationItem("Shell_Blank".GetLocalized(), Symbol.Document, GetType(BlankViewModel).FullName))
+            _secondaryItems.Add(New ShellNavigationItem("Shell_Settings".GetLocalized(), Symbol.Setting, GetType(SettingsViewModel).FullName))
+            _primaryItems.Add(New ShellNavigationItem("Shell_Blank1".GetLocalized(), Symbol.Document, GetType(Blank1ViewModel).FullName))
+            _primaryItems.Add(New ShellNavigationItem("Shell_Camera".GetLocalized(), Symbol.Document, GetType(CameraViewModel).FullName))
+            _primaryItems.Add(New ShellNavigationItem("Shell_Chart".GetLocalized(), Symbol.Document, GetType(ChartViewModel).FullName))
+            _primaryItems.Add(New ShellNavigationItem("Shell_Grid".GetLocalized(), Symbol.Document, GetType(GridViewModel).FullName))
+            _primaryItems.Add(New ShellNavigationItem("Shell_ImageGallery".GetLocalized(), Symbol.Document, GetType(ImageGalleryViewModel).FullName))
+            _primaryItems.Add(New ShellNavigationItem("Shell_Map".GetLocalized(), Symbol.Document, GetType(MapViewModel).FullName))
+            _primaryItems.Add(New ShellNavigationItem("Shell_MasterDetail".GetLocalized(), Symbol.Document, GetType(MasterDetailViewModel).FullName))
+            _primaryItems.Add(New ShellNavigationItem("Shell_MediaPlayer".GetLocalized(), Symbol.Document, GetType(MediaPlayerViewModel).FullName))
+            _primaryItems.Add(New ShellNavigationItem("Shell_Tabbed".GetLocalized(), Symbol.Document, GetType(TabbedViewModel).FullName))
+            _primaryItems.Add(New ShellNavigationItem("Shell_WebView".GetLocalized(), Symbol.Document, GetType(WebViewViewModel).FullName))
         End Sub
 
-        Private Sub ItemSelected(args As ItemClickEventArgs)
+        Private Sub ItemSelected(args As HamburgerMenuItemInvokedEventArgs)
             If DisplayMode = SplitViewDisplayMode.CompactOverlay OrElse DisplayMode = SplitViewDisplayMode.Overlay Then
                 IsPaneOpen = False
             End If
-            Navigate(args.ClickedItem)
+            Navigate(args.InvokedItem)
         End Sub
 
         Private Sub Frame_Navigated(sender As Object, e As NavigationEventArgs)
@@ -177,6 +201,7 @@ Namespace ViewModels
             End If
             If newValue IsNot Nothing Then
                 TryCast(newValue, ShellNavigationItem).IsSelected = True
+                Selected = newValue
             End If
         End Sub
 
@@ -186,10 +211,5 @@ Namespace ViewModels
                 NavigationService.Navigate(navigationItem.ViewModelName)
             End If
         End Sub
-
-        Private Shared Function InlineAssignHelper(Of T)(ByRef target As T, value As T) As T
-            target = value
-            Return value
-        End Function
     End Class
 End Namespace

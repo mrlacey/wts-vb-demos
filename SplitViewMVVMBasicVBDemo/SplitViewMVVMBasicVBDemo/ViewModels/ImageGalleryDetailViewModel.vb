@@ -8,8 +8,11 @@ Imports Windows.UI.Xaml.Media.Animation
 Namespace ViewModels
     Public Class ImageGalleryDetailViewModel
         Inherits Observable
+
         Private Shared _image As UIElement
+
         Private _selectedImage As Object
+
         Private _source As ObservableCollection(Of SampleImage)
 
         Public Property SelectedImage As Object
@@ -18,7 +21,7 @@ Namespace ViewModels
             End Get
             Set
                 [Set](_selectedImage, value)
-                ApplicationData.Current.LocalSettings.SaveString(ImageGalleryViewModel.ImageGallerySelectedImageId, DirectCast(SelectedImage, SampleImage).ID)
+                ApplicationData.Current.LocalSettings.SaveString(ImageGalleryViewModel.ImageGallerySelectedIdKey, DirectCast(SelectedImage, SampleImage).ID)
             End Set
         End Property
 

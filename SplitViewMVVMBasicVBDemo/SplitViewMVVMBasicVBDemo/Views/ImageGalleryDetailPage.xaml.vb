@@ -4,7 +4,9 @@ Imports SplitViewMVVMBasicVBDemo.ViewModels
 Namespace Views
     Public NotInheritable Partial Class ImageGalleryDetailPage
         Inherits Page
+
         Public ReadOnly Property ViewModel As ImageGalleryDetailViewModel = New ImageGalleryDetailViewModel()
+
         Public Sub New()
             InitializeComponent()
             ViewModel.SetImage(previewImage)

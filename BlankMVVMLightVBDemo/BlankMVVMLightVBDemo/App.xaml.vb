@@ -2,8 +2,10 @@
 
 NotInheritable Partial Class App
     Inherits Application
+
     Private _activationService As Lazy(Of ActivationService)
-    Private ReadOnly Property ActivationService() As ActivationService
+
+    Private ReadOnly Property ActivationService As ActivationService
         Get
             Return _activationService.Value
         End Get
@@ -29,7 +31,7 @@ NotInheritable Partial Class App
     End Sub
 
     Private Function CreateActivationService() As ActivationService
-        Return New ActivationService(Me, GetType(ViewModels.MainViewModel))
+        Return New ActivationService(Me, GetType(ViewModels.BlankViewModel))
     End Function
 
     Protected Overrides Async Sub OnBackgroundActivated(args As BackgroundActivatedEventArgs)

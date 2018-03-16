@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{38403915-BD18-4903-872F-7B348AD9DF6A}</ProjectGuid>
+    <ProjectGuid>{85A8C6A8-8722-4CD4-823D-BFDB2754BABF}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SplitViewCodeBehindVBDemo</RootNamespace>
@@ -106,7 +106,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.0.1</Version>
+      <Version>6.0.6</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
       <Version>2.0.0</Version>
@@ -122,13 +122,16 @@
       <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
     </SDKReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
-      <Version>2.0.0</Version>
+      <Version>2.2.0</Version>
     </PackageReference>
     <PackageReference Include="WindowsAzure.Messaging.Managed">
       <Version>0.1.7.9</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp">
+      <Version>2.2.0</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Services.Store.Engagement">
-      <Version>10.1706.16001</Version>
+      <Version>10.1711.28001</Version>
     </PackageReference>
     <SDKReference Include="Microsoft.Services.Store.Engagement, Version=10.0">
       <Name>Microsoft Engagement Framework</Name>
@@ -136,14 +139,14 @@
     <SDKReference Include="Microsoft.VCLibs, Version=14.0">
       <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
     </SDKReference>
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>10.0.3</Version>
-    </PackageReference>
     <PackageReference Include="Telerik.UI.for.UniversalWindowsPlatform">
-      <Version>1.0.0.5</Version>
+      <Version>1.0.0.9</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
-      <Version>2.0.0</Version>
+      <Version>2.2.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -264,14 +267,14 @@
     <Compile Include="Services\NavigationService.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\MainPage.xaml">
+    <Page Include="Views\BlankPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\MainPage.xaml.vb">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Views\BlankPage.xaml.vb">
+      <DependentUpon>BlankPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -281,25 +284,48 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Blank2Page.xaml">
+    <Compile Include="Helpers\SettingsStorageExtensions.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\Json.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\EnumToBooleanConverter.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\SettingsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Blank2Page.xaml.vb">
-      <DependentUpon>Blank2Page.xaml</DependentUpon>
+    <Compile Include="Views\SettingsPage.xaml.vb">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Camera2Page.xaml">
+    <Compile Include="Services\ThemeSelectorService.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\Blank1Page.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Camera2Page.xaml.vb">
-      <DependentUpon>Camera2Page.xaml</DependentUpon>
+    <Compile Include="Views\Blank1Page.xaml.vb">
+      <DependentUpon>Blank1Page.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\CameraPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Views\CameraPage.xaml.vb">
+      <DependentUpon>CameraPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -326,56 +352,50 @@
     <Compile Include="Models\SampleOrder.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Chart2Page.xaml">
+    <Page Include="Views\ChartPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Chart2Page.xaml.vb">
-      <DependentUpon>Chart2Page.xaml</DependentUpon>
+    <Compile Include="Views\ChartPage.xaml.vb">
+      <DependentUpon>ChartPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\DataPoint.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Grid2Page.xaml">
+    <Page Include="Views\GridPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Grid2Page.xaml.vb">
-      <DependentUpon>Grid2Page.xaml</DependentUpon>
+    <Compile Include="Views\GridPage.xaml.vb">
+      <DependentUpon>GridPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\SettingsStorageExtensions.vb" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Helpers\Json.vb" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Views\ImageGallery2Page.xaml">
+    <Page Include="Views\ImageGalleryPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\ImageGallery2Page.xaml.vb">
-      <DependentUpon>ImageGallery2Page.xaml</DependentUpon>
+    <Compile Include="Views\ImageGalleryPage.xaml.vb">
+      <DependentUpon>ImageGalleryPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\ImageGallery2DetailPage.xaml">
+    <Page Include="Views\ImageGalleryDetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\ImageGallery2DetailPage.xaml.vb">
-      <DependentUpon>ImageGallery2DetailPage.xaml</DependentUpon>
+    <Compile Include="Views\ImageGalleryDetailPage.xaml.vb">
+      <DependentUpon>ImageGalleryDetailPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -421,14 +441,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Map2Page.xaml">
+    <Page Include="Views\MapPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Map2Page.xaml.vb">
-      <DependentUpon>Map2Page.xaml</DependentUpon>
+    <Compile Include="Views\MapPage.xaml.vb">
+      <DependentUpon>MapPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -438,75 +458,58 @@
     <Compile Include="Services\LocationService.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\MasterDetail2Page.xaml">
+    <Page Include="Views\MasterDetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\MasterDetail2Page.xaml.vb">
-      <DependentUpon>MasterDetail2Page.xaml</DependentUpon>
+    <Compile Include="Views\MasterDetailPage.xaml.vb">
+      <DependentUpon>MasterDetailPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\MasterDetail2DetailControl.xaml">
+    <Page Include="Views\MasterDetailDetailControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\MasterDetail2DetailControl.xaml.vb">
-      <DependentUpon>MasterDetail2DetailControl.xaml</DependentUpon>
+    <Compile Include="Views\MasterDetailDetailControl.xaml.vb">
+      <DependentUpon>MasterDetailDetailControl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\MediaPlayer2Page.xaml">
+    <Page Include="Views\MediaPlayerPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\MediaPlayer2Page.xaml.vb">
-      <DependentUpon>MediaPlayer2Page.xaml</DependentUpon>
+    <Compile Include="Views\MediaPlayerPage.xaml.vb">
+      <DependentUpon>MediaPlayerPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\EnumToBooleanConverter.vb" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Views\Settings2Page.xaml">
+    <Page Include="Views\TabbedPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Settings2Page.xaml.vb">
-      <DependentUpon>Settings2Page.xaml</DependentUpon>
+    <Compile Include="Views\TabbedPage.xaml.vb">
+      <DependentUpon>TabbedPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\ThemeSelectorService.vb" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Views\Tabbed2Page.xaml">
+    <Page Include="Views\WebViewPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\Tabbed2Page.xaml.vb">
-      <DependentUpon>Tabbed2Page.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Views\WebView2Page.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Views\WebView2Page.xaml.vb">
-      <DependentUpon>WebView2Page.xaml</DependentUpon>
+    <Compile Include="Views\WebViewPage.xaml.vb">
+      <DependentUpon>WebViewPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -516,10 +519,31 @@
     <Compile Include="BackgroundTasks\BackgroundTask.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackgroundTasks\BackgroundTask3.vb" />
+    <Compile Include="BackgroundTasks\BackgroundTask1.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\TaskExtensions.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\DragAndDrop\DropConfiguration.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\DragAndDrop\ListViewDropConfiguration.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\DragDropCompletedData.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\DragDropData.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\DragDropStartingData.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\DragAndDrop\DragDropService.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Services\DragAndDrop\VisualDropConfiguration.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\FirstRunDisplayService.vb" />
@@ -536,22 +560,28 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\HubNotifications2Service.vb" />
+    <Compile Include="Services\HubNotificationsService.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\LiveTile2Service.vb" />
+    <Compile Include="Services\LiveTileService.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\LiveTile2Service.Samples.vb" />
+    <Compile Include="Services\LiveTileService.Samples.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\ShareSource2Data.vb" />
+    <Compile Include="Services\ViewLifetimeControl.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\ShareSource2Item.vb" />
+    <Compile Include="Services\WindowManagerService.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\DataRequestExtensions.vb" />
+    <Compile Include="Models\ShareSourceData.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\ShareSourceItem.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\DataRequestExtensions.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\SharedDataStorageItemsModel.vb" />
@@ -566,24 +596,24 @@
     <Compile Include="TemplateSelectors\SharedContentTemplateSelector.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\ShareTarget2Page.xaml">
+    <Page Include="Views\ShareTargetPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\ShareTarget2Page.xaml.vb">
-      <DependentUpon>ShareTarget2Page.xaml</DependentUpon>
+    <Compile Include="Views\ShareTargetPage.xaml.vb">
+      <DependentUpon>ShareTargetPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activation\ShareTarget2ActivationHandler.vb" />
+    <Compile Include="Activation\ShareTargetActivationHandler.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\ShareOperationExtensions.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\StoreNotifications2Service.vb" />
+    <Compile Include="Services\StoreNotificationsService.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\SuspendAndResumeService.vb" />
@@ -595,10 +625,10 @@
     <Compile Include="Services\SuspensionState.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\ToastNotifications2Service.vb" />
+    <Compile Include="Services\ToastNotificationsService.vb" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\ToastNotifications2Service.Samples.vb" />
+    <Compile Include="Services\ToastNotificationsService.Samples.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activation\SchemeActivationHandler.vb" />
@@ -607,15 +637,18 @@
     <Content Include="Assets\Logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\UriScheme2ExamplePage.xaml">
+    <Page Include="Views\UriSchemeExamplePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Views\UriScheme2ExamplePage.xaml.vb">
-      <DependentUpon>UriScheme2ExamplePage.xaml</DependentUpon>
+    <Compile Include="Views\UriSchemeExamplePage.xaml.vb">
+      <DependentUpon>UriSchemeExamplePage.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activation\WebToAppLinkActivationHandler.vb" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\WhatsNewDialog.xaml">

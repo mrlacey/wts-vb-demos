@@ -5,9 +5,10 @@ Imports Windows.ApplicationModel.DataTransfer.ShareTarget
 Namespace ViewModels
     Public Class SharedDataViewModelBase
         Inherits ViewModelBase
+
         Private _dataFormat As String
 
-        Public Property DataFormat() As String
+        Public Property DataFormat As String
             Get
                 Return _dataFormat
             End Get
@@ -18,7 +19,7 @@ Namespace ViewModels
 
         Private _pageTitle As String
 
-        Public Property PageTitle() As String
+        Public Property PageTitle As String
             Get
                 Return _pageTitle
             End Get
@@ -29,7 +30,7 @@ Namespace ViewModels
 
         Private _title As String
 
-        Public Property Title() As String
+        Public Property Title As String
             Get
                 Return _title
             End Get
